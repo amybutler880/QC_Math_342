@@ -1,0 +1,3094 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+You should have RStudio installed to edit this file. You will write code
+in places marked ``TO-DO'' to complete the problems. Some of this will
+be a pure programming assignment. The tools for the solutions to these
+problems can be found in the class practice lectures. I want you to use
+the methods I taught you, not for you to google and come up with
+whatever works. You won't learn that way.
+
+To ``hand in'' the homework, you should compile or publish this file
+into a PDF that includes output of your code. Once it's done, push by
+the deadline to your repository in a directory called ``labs''.
+
+\begin{itemize}
+\tightlist
+\item
+  Print out the numerical constant pi with ten digits after the decimal
+  point using the internal constant \texttt{pi}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{options}\NormalTok{(}\AttributeTok{digits=}\DecValTok{11}\NormalTok{)}
+\NormalTok{pi}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.1415926536
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Sum up the first 103 terms of the series 1 + 1/2 + 1/4 + 1/8 +
+  \ldots{}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{102}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Find the product of the first 37 terms in the sequence 1/3, 1/6, 1/9
+  \ldots{}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prod}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\DecValTok{3}\NormalTok{,}\AttributeTok{by=}\DecValTok{3}\NormalTok{,}\AttributeTok{length.out=}\DecValTok{37}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.613528728e-61
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Find the product of the first 387 terms of
+  \texttt{1\ *\ 1/2\ *\ 1/4\ *\ 1/8\ *} \ldots{}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prod}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{386}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+Is this answer \emph{exactly} correct?
+
+The answer is not exactly correct because we experienced numerical
+underflow.
+
+\begin{itemize}
+\tightlist
+\item
+  Figure out a means to express the answer more exactly. Not compute
+  exactly, but express more exactly.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{{-}}\FunctionTok{log}\NormalTok{(}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\FunctionTok{sum}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{386}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -51771.856063
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Create the sequence \texttt{x\ =\ {[}Inf,\ 20,\ 18,\ ...,\ -20{]}}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\ConstantTok{Inf}\NormalTok{,}\FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\DecValTok{20}\NormalTok{,}\AttributeTok{to=}\SpecialCharTok{{-}}\DecValTok{20}\NormalTok{,}\AttributeTok{by=}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{))}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] Inf  20  18  16  14  12  10   8   6   4   2   0  -2  -4  -6  -8 -10 -12 -14
+## [20] -16 -18 -20
+\end{verbatim}
+
+Create the sequence
+\texttt{x\ =\ {[}log\_3(Inf),\ log\_3(100),\ log\_3(98),\ ...\ log\_3(-20){]}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\ConstantTok{Inf}\NormalTok{,}\FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\DecValTok{100}\NormalTok{,}\AttributeTok{to=}\SpecialCharTok{{-}}\DecValTok{20}\NormalTok{,}\AttributeTok{by=}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{))}
+\NormalTok{x}\OtherTok{=}\FunctionTok{log}\NormalTok{(x,}\AttributeTok{base=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NaNs produced
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{log}\NormalTok{(}\DecValTok{100}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.1918065486
+\end{verbatim}
+
+Comment on the appropriateness of the non-numeric values.
+
+Log is undefined for negative numbers and the log of infinity is
+infinity.
+
+\begin{itemize}
+\tightlist
+\item
+  Create a vector of booleans where the entry is true if
+  \texttt{x{[}i{]}} is positive and finite.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y}\OtherTok{=}\SpecialCharTok{!}\FunctionTok{is.nan}\NormalTok{(x) }\SpecialCharTok{\&} \FunctionTok{is.finite}\NormalTok{(x) }\SpecialCharTok{\&}\NormalTok{ x}\SpecialCharTok{\textgreater{}}\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Locate the indices of the non-real numbers in this vector. Hint: use
+  the \texttt{which} function. Don't hesitate to use the documentation
+  via \texttt{?which}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{(y }\SpecialCharTok{==} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1 52 53 54 55 56 57 58 59 60 61 62
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Locate the indices of the infinite quantities in this vector.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{(}\FunctionTok{is.infinite}\NormalTok{(x))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1 52
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Locate the indices of the min and max in this vector. Hint: use the
+  \texttt{which.min} and \texttt{which.max} functions.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which.min}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 52
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which.max}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Count the number of unique values in \texttt{x}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(x))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 53
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Cast \texttt{x} to a factor. Do the number of levels make sense?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{as.factor}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] Inf               4.19180654857877  4.1734172518943   4.15464876785729 
+##  [5] 4.13548512895119  4.11590933734319  4.09590327428938  4.07544759935851 
+##  [9] 4.05452163806914  4.03310325630434  4.01116871959141  3.98869253500376 
+## [13] 3.96564727304425  3.94200336638929  3.91772888178973  3.89278926071437 
+## [17] 3.86714702345081  3.84076143030548  3.81358809221559  3.78557852142874 
+## [21] 3.75667961082847  3.72683302786084  3.69597450568212  3.66403300987579 
+## [25] 3.63092975357146  3.59657702661571  3.56087679500731  3.52371901428583 
+## [29] 3.48497958377173  3.44451784578705  3.40217350273288  3.3577627814323  
+## [33] 3.31107361281783  3.26185950714291  3.20983167673402  3.15464876785729 
+## [37] 3.09590327428938  3.03310325630434  2.96564727304425  2.89278926071437 
+## [41] 2.8135880922156   2.72683302786084  2.63092975357146  2.52371901428583 
+## [45] 2.40217350273288  2.26185950714291  2.09590327428938  1.89278926071437 
+## [49] 1.63092975357146  1.26185950714291  0.630929753571457 -Inf             
+## [53] NaN               NaN               NaN               NaN              
+## [57] NaN               NaN               NaN               NaN              
+## [61] NaN               NaN              
+## 53 Levels: -Inf 0.630929753571457 1.26185950714291 ... NaN
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Cast \texttt{x} to integers. What do we learn about R's infinity
+  representation in the integer data type?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{as.integer}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: NAs introduced by coercion to integer range
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] NA  4  4  4  4  4  4  4  4  4  4  3  3  3  3  3  3  3  3  3  3  3  3  3  3
+## [26]  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  2  2  2  2  2  2  2  1  1  1
+## [51]  0 NA NA NA NA NA NA NA NA NA NA NA
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Use \texttt{x} to create a new vector \texttt{y} containing only the
+  real numbers in x.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y}\OtherTok{=}\NormalTok{x[}\SpecialCharTok{!}\FunctionTok{is.nan}\NormalTok{(x) }\SpecialCharTok{\&} \FunctionTok{is.finite}\NormalTok{(x) }\SpecialCharTok{\&}\NormalTok{ x}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{]}
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 4.19180654858 4.17341725189 4.15464876786 4.13548512895 4.11590933734
+##  [6] 4.09590327429 4.07544759936 4.05452163807 4.03310325630 4.01116871959
+## [11] 3.98869253500 3.96564727304 3.94200336639 3.91772888179 3.89278926071
+## [16] 3.86714702345 3.84076143031 3.81358809222 3.78557852143 3.75667961083
+## [21] 3.72683302786 3.69597450568 3.66403300988 3.63092975357 3.59657702662
+## [26] 3.56087679501 3.52371901429 3.48497958377 3.44451784579 3.40217350273
+## [31] 3.35776278143 3.31107361282 3.26185950714 3.20983167673 3.15464876786
+## [36] 3.09590327429 3.03310325630 2.96564727304 2.89278926071 2.81358809222
+## [41] 2.72683302786 2.63092975357 2.52371901429 2.40217350273 2.26185950714
+## [46] 2.09590327429 1.89278926071 1.63092975357 1.26185950714 0.63092975357
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the left rectangle method to numerically integrate x\^{}2 from 0
+  to 1 with rectangle width size 1e-6.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(((}\FunctionTok{seq}\NormalTok{(}\AttributeTok{from=}\DecValTok{0}\NormalTok{,}\AttributeTok{to=}\DecValTok{1}\FloatTok{{-}1e{-}6}\NormalTok{,}\AttributeTok{by=}\FloatTok{1e{-}6}\NormalTok{))}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}\SpecialCharTok{*}\FloatTok{1e{-}6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.33333283333
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Calculate the average of 100 realizations of standard Bernoullis in
+  one line using the \texttt{sample} function.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{size=}\DecValTok{100}\NormalTok{,}\AttributeTok{replace=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 1 0 1 1 1 1 0 1 1 0 0 0 0 0 1 1 1 0 0 1 0 1 0 0 1 1 0 1 1 0 1 1 0 1 1 0 1
+##  [38] 0 0 1 0 0 1 0 0 0 1 0 1 1 1 0 0 0 0 1 1 1 0 1 0 0 0 0 1 1 0 0 1 1 0 0 1 1
+##  [75] 0 0 0 1 1 1 1 0 0 0 1 1 0 0 0 0 0 1 0 0 1 0 0 1 1 1
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Calculate the average of 500 realizations of Bernoullis with p = 0.9
+  in one line using the \texttt{sample} and \texttt{mean} functions.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{size=}\DecValTok{500}\NormalTok{,}\AttributeTok{replace=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.9}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.896
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Calculate the average of 1000 realizations of Bernoullis with p = 0.9
+  in one line using \texttt{rbinom}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n=}\DecValTok{1000}\NormalTok{,}\AttributeTok{size=}\DecValTok{1}\NormalTok{,}\AttributeTok{prob=}\FloatTok{0.9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.882
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  In class we considered a variable \texttt{x\_3} which measured
+  ``criminality''. We imagined L = 4 levels ``none'', ``infraction'',
+  ``misdimeanor'' and ``felony''. Create a variable \texttt{x\_3} here
+  with 100 random elements (equally probable). Create it as a nominal
+  (i.e.~unordered) factor.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x\_3}\OtherTok{=}\FunctionTok{as.factor}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"none"}\NormalTok{,}\StringTok{"infraction"}\NormalTok{,}\StringTok{"misdimeanor"}\NormalTok{,}\StringTok{"felony"}\NormalTok{),}\AttributeTok{size=}\DecValTok{100}\NormalTok{, }\AttributeTok{replace=}\ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{x\_3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] felony      felony      none        none        none        misdimeanor
+##   [7] misdimeanor felony      none        misdimeanor none        infraction 
+##  [13] infraction  none        none        misdimeanor infraction  felony     
+##  [19] infraction  none        misdimeanor infraction  misdimeanor felony     
+##  [25] felony      felony      infraction  misdimeanor none        infraction 
+##  [31] none        felony      infraction  infraction  infraction  infraction 
+##  [37] none        none        none        infraction  misdimeanor none       
+##  [43] misdimeanor infraction  felony      infraction  none        none       
+##  [49] none        misdimeanor none        misdimeanor misdimeanor misdimeanor
+##  [55] none        none        felony      none        infraction  felony     
+##  [61] none        infraction  infraction  misdimeanor none        misdimeanor
+##  [67] misdimeanor none        none        felony      none        misdimeanor
+##  [73] none        infraction  none        none        felony      felony     
+##  [79] misdimeanor misdimeanor misdimeanor misdimeanor misdimeanor infraction 
+##  [85] felony      none        none        misdimeanor felony      infraction 
+##  [91] infraction  felony      felony      misdimeanor none        none       
+##  [97] infraction  infraction  felony      infraction 
+## Levels: felony infraction misdimeanor none
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Use \texttt{x\_3} to create \texttt{x\_3\_bin}, a binary feature where
+  0 is no crime and 1 is any crime.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x\_3\_bin}\OtherTok{=}\NormalTok{x\_3}\SpecialCharTok{!=}\StringTok{"none"}
+\NormalTok{x\_3\_bin}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
+##  [13]  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
+##  [25]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [37] FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+##  [49] FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+##  [61] FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE
+##  [73] FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [85]  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+##  [97]  TRUE  TRUE  TRUE  TRUE
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Use \texttt{x\_3} to create \texttt{x\_3\_ord}, an ordered factor
+  variable. Ensure the proper ordinal ordering.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x\_3\_ord}\OtherTok{=}\FunctionTok{factor}\NormalTok{(x\_3,}\AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"none"}\NormalTok{,}\StringTok{"infraction"}\NormalTok{,}\StringTok{"misdimeanor"}\NormalTok{,}\StringTok{"felony"}\NormalTok{),}\AttributeTok{ordered=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{x\_3\_ord}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] felony      felony      none        none        none        misdimeanor
+##   [7] misdimeanor felony      none        misdimeanor none        infraction 
+##  [13] infraction  none        none        misdimeanor infraction  felony     
+##  [19] infraction  none        misdimeanor infraction  misdimeanor felony     
+##  [25] felony      felony      infraction  misdimeanor none        infraction 
+##  [31] none        felony      infraction  infraction  infraction  infraction 
+##  [37] none        none        none        infraction  misdimeanor none       
+##  [43] misdimeanor infraction  felony      infraction  none        none       
+##  [49] none        misdimeanor none        misdimeanor misdimeanor misdimeanor
+##  [55] none        none        felony      none        infraction  felony     
+##  [61] none        infraction  infraction  misdimeanor none        misdimeanor
+##  [67] misdimeanor none        none        felony      none        misdimeanor
+##  [73] none        infraction  none        none        felony      felony     
+##  [79] misdimeanor misdimeanor misdimeanor misdimeanor misdimeanor infraction 
+##  [85] felony      none        none        misdimeanor felony      infraction 
+##  [91] infraction  felony      felony      misdimeanor none        none       
+##  [97] infraction  infraction  felony      infraction 
+## Levels: none < infraction < misdimeanor < felony
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Convert this variable into three binary variables without any
+  information loss and put them into a data matrix.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x\_binary1}\OtherTok{=}\NormalTok{x\_3\_ord}\SpecialCharTok{==}\StringTok{"infraction"}
+\NormalTok{x\_binary2}\OtherTok{=}\NormalTok{x\_3\_ord}\SpecialCharTok{==}\StringTok{"misdimeanor"}
+\NormalTok{x\_binary3}\OtherTok{=}\NormalTok{x\_3\_ord}\SpecialCharTok{==}\StringTok{"felony"}
+\NormalTok{x\_3\_ord\_bin}\OtherTok{=}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{data=}\FunctionTok{c}\NormalTok{(x\_binary1,x\_binary2,x\_binary3),}\AttributeTok{nrow=}\DecValTok{3}\NormalTok{,}\AttributeTok{ncol=}\DecValTok{100}\NormalTok{,}\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{dimnames=}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{x\_3\_ord\_bin}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]  [,2]  [,3]  [,4]  [,5]  [,6]  [,7]  [,8]  [,9] [,10] [,11] [,12]
+## [1,] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [2,] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE
+## [3,]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+##      [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24]
+## [1,]  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
+## [2,] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE
+## [3,] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE
+##      [,25] [,26] [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36]
+## [1,] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+## [2,] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [3,]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+##      [,37] [,38] [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48]
+## [1,] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE
+## [2,] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [3,] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+##      [,49] [,50] [,51] [,52] [,53] [,54] [,55] [,56] [,57] [,58] [,59] [,60]
+## [1,] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [2,] FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [3,] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE
+##      [,61] [,62] [,63] [,64] [,65] [,66] [,67] [,68] [,69] [,70] [,71] [,72]
+## [1,] FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [2,] FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE
+## [3,] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+##      [,73] [,74] [,75] [,76] [,77] [,78] [,79] [,80] [,81] [,82] [,83] [,84]
+## [1,] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [2,] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+## [3,] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##      [,85] [,86] [,87] [,88] [,89] [,90] [,91] [,92] [,93] [,94] [,95] [,96]
+## [1,] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [2,] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [3,]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
+##      [,97] [,98] [,99] [,100]
+## [1,]  TRUE  TRUE FALSE   TRUE
+## [2,] FALSE FALSE FALSE  FALSE
+## [3,] FALSE FALSE  TRUE  FALSE
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  What should the sum of each row be (in English)? The sum of the first
+  row should be the total number of infractions. The sum of the second
+  row should be the total number of misdemeanors. The sum of the third
+  row should be the total number of felonies.
+\end{itemize}
+
+Verify that.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rowSums}\NormalTok{(x\_3\_ord\_bin)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 24 24 19
+\end{verbatim}
+
+\begin{itemize}
+\item
+  How should the column sum look (in English)?
+
+  The column sums should either be zero or one because only one option
+  occurred or none occurred.
+
+  Verify that.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colSums}\NormalTok{(x\_3\_ord\_bin)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 1 1 0 0 0 1 1 1 0 1 0 1 1 0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 0
+##  [38] 0 0 1 1 0 1 1 1 1 0 0 0 1 0 1 1 1 0 0 1 0 1 1 0 1 1 1 0 1 1 0 0 1 0 1 0 1
+##  [75] 0 0 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 0 1 1 1 1
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Generate a matrix with 100 rows where the first column is realization
+  from a normal with mean 17 and variance 38, the second column is
+  uniform between -10 and 10, the third column is poisson with mean 6,
+  the fourth column in exponential with lambda of 9, the fifth column is
+  binomial with n = 20 and p = 0.12 and the sixth column is a binary
+  variable with exactly 24\% 1's dispersed randomly. Name the rows the
+  entries of the \texttt{fake\_first\_names} vector.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fake\_first\_names }\OtherTok{=} \FunctionTok{c}\NormalTok{(}
+  \StringTok{"Sophia"}\NormalTok{, }\StringTok{"Emma"}\NormalTok{, }\StringTok{"Olivia"}\NormalTok{, }\StringTok{"Ava"}\NormalTok{, }\StringTok{"Mia"}\NormalTok{, }\StringTok{"Isabella"}\NormalTok{, }\StringTok{"Riley"}\NormalTok{, }
+  \StringTok{"Aria"}\NormalTok{, }\StringTok{"Zoe"}\NormalTok{, }\StringTok{"Charlotte"}\NormalTok{, }\StringTok{"Lily"}\NormalTok{, }\StringTok{"Layla"}\NormalTok{, }\StringTok{"Amelia"}\NormalTok{, }\StringTok{"Emily"}\NormalTok{, }
+  \StringTok{"Madelyn"}\NormalTok{, }\StringTok{"Aubrey"}\NormalTok{, }\StringTok{"Adalyn"}\NormalTok{, }\StringTok{"Madison"}\NormalTok{, }\StringTok{"Chloe"}\NormalTok{, }\StringTok{"Harper"}\NormalTok{, }
+  \StringTok{"Abigail"}\NormalTok{, }\StringTok{"Aaliyah"}\NormalTok{, }\StringTok{"Avery"}\NormalTok{, }\StringTok{"Evelyn"}\NormalTok{, }\StringTok{"Kaylee"}\NormalTok{, }\StringTok{"Ella"}\NormalTok{, }\StringTok{"Ellie"}\NormalTok{, }
+  \StringTok{"Scarlett"}\NormalTok{, }\StringTok{"Arianna"}\NormalTok{, }\StringTok{"Hailey"}\NormalTok{, }\StringTok{"Nora"}\NormalTok{, }\StringTok{"Addison"}\NormalTok{, }\StringTok{"Brooklyn"}\NormalTok{, }
+  \StringTok{"Hannah"}\NormalTok{, }\StringTok{"Mila"}\NormalTok{, }\StringTok{"Leah"}\NormalTok{, }\StringTok{"Elizabeth"}\NormalTok{, }\StringTok{"Sarah"}\NormalTok{, }\StringTok{"Eliana"}\NormalTok{, }\StringTok{"Mackenzie"}\NormalTok{, }
+  \StringTok{"Peyton"}\NormalTok{, }\StringTok{"Maria"}\NormalTok{, }\StringTok{"Grace"}\NormalTok{, }\StringTok{"Adeline"}\NormalTok{, }\StringTok{"Elena"}\NormalTok{, }\StringTok{"Anna"}\NormalTok{, }\StringTok{"Victoria"}\NormalTok{, }
+  \StringTok{"Camilla"}\NormalTok{, }\StringTok{"Lillian"}\NormalTok{, }\StringTok{"Natalie"}\NormalTok{, }\StringTok{"Jackson"}\NormalTok{, }\StringTok{"Aiden"}\NormalTok{, }\StringTok{"Lucas"}\NormalTok{, }
+  \StringTok{"Liam"}\NormalTok{, }\StringTok{"Noah"}\NormalTok{, }\StringTok{"Ethan"}\NormalTok{, }\StringTok{"Mason"}\NormalTok{, }\StringTok{"Caden"}\NormalTok{, }\StringTok{"Oliver"}\NormalTok{, }\StringTok{"Elijah"}\NormalTok{, }
+  \StringTok{"Grayson"}\NormalTok{, }\StringTok{"Jacob"}\NormalTok{, }\StringTok{"Michael"}\NormalTok{, }\StringTok{"Benjamin"}\NormalTok{, }\StringTok{"Carter"}\NormalTok{, }\StringTok{"James"}\NormalTok{, }
+  \StringTok{"Jayden"}\NormalTok{, }\StringTok{"Logan"}\NormalTok{, }\StringTok{"Alexander"}\NormalTok{, }\StringTok{"Caleb"}\NormalTok{, }\StringTok{"Ryan"}\NormalTok{, }\StringTok{"Luke"}\NormalTok{, }\StringTok{"Daniel"}\NormalTok{, }
+  \StringTok{"Jack"}\NormalTok{, }\StringTok{"William"}\NormalTok{, }\StringTok{"Owen"}\NormalTok{, }\StringTok{"Gabriel"}\NormalTok{, }\StringTok{"Matthew"}\NormalTok{, }\StringTok{"Connor"}\NormalTok{, }\StringTok{"Jayce"}\NormalTok{, }
+  \StringTok{"Isaac"}\NormalTok{, }\StringTok{"Sebastian"}\NormalTok{, }\StringTok{"Henry"}\NormalTok{, }\StringTok{"Muhammad"}\NormalTok{, }\StringTok{"Cameron"}\NormalTok{, }\StringTok{"Wyatt"}\NormalTok{, }
+  \StringTok{"Dylan"}\NormalTok{, }\StringTok{"Nathan"}\NormalTok{, }\StringTok{"Nicholas"}\NormalTok{, }\StringTok{"Julian"}\NormalTok{, }\StringTok{"Eli"}\NormalTok{, }\StringTok{"Levi"}\NormalTok{, }\StringTok{"Isaiah"}\NormalTok{, }
+  \StringTok{"Landon"}\NormalTok{, }\StringTok{"David"}\NormalTok{, }\StringTok{"Christian"}\NormalTok{, }\StringTok{"Andrew"}\NormalTok{, }\StringTok{"Brayden"}\NormalTok{, }\StringTok{"John"}\NormalTok{, }
+  \StringTok{"Lincoln"}
+\NormalTok{)}
+
+\NormalTok{names}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\AttributeTok{n=}\DecValTok{100}\NormalTok{,}\AttributeTok{mean=}\DecValTok{17}\NormalTok{,}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{38}\NormalTok{)),}\FunctionTok{runif}\NormalTok{(}\AttributeTok{n=}\DecValTok{100}\NormalTok{,}\AttributeTok{min=}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{,}\AttributeTok{max=}\DecValTok{10}\NormalTok{),}\FunctionTok{rpois}\NormalTok{(}\AttributeTok{n=}\DecValTok{100}\NormalTok{,}\AttributeTok{lambda=}\DecValTok{6}\NormalTok{),}\FunctionTok{rexp}\NormalTok{(}\AttributeTok{n=}\DecValTok{100}\NormalTok{,}\AttributeTok{rate=}\DecValTok{9}\NormalTok{),}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n=}\DecValTok{100}\NormalTok{,}\AttributeTok{size=}\DecValTok{20}\NormalTok{,}\AttributeTok{prob=}\FloatTok{0.12}\NormalTok{),}\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{76}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{24}\NormalTok{)),}\AttributeTok{size=}\DecValTok{100}\NormalTok{,}\AttributeTok{replace=}\ConstantTok{FALSE}\NormalTok{,))}
+\NormalTok{matrix\_fake\_first\_names}\OtherTok{=}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{data=}\NormalTok{names,}\AttributeTok{nrow=}\DecValTok{100}\NormalTok{,}\AttributeTok{ncol=}\DecValTok{6}\NormalTok{,}\AttributeTok{byrow=}\ConstantTok{FALSE}\NormalTok{,}\AttributeTok{dimnames=}\FunctionTok{list}\NormalTok{(fake\_first\_names))}
+\NormalTok{matrix\_fake\_first\_names}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    [,1]            [,2] [,3]             [,4] [,5] [,6]
+## Sophia    15.7488359911  2.993334364146    2 0.07412788075291    3    0
+## Emma      20.9289067003  9.221343141980    7 0.15860706918664    2    0
+## Olivia    20.7256256925 -9.835995608009    9 0.10481979593996    1    1
+## Ava       22.3073938689 -3.338282601908    6 0.01394931868547    0    1
+## Mia       21.0366541415 -2.191735901870    6 0.21494635669616    4    1
+## Isabella  14.9034737415  1.260038926266    5 0.01355085822029    4    0
+## Riley     15.2527314409  9.829947371036    7 0.00734196235943    0    0
+## Aria       9.4017173615  5.134957712144    5 0.06678041826106    1    1
+## Zoe       18.3403738979 -1.872462490574    7 0.02585682722347    1    0
+## Charlotte 11.4088935400 -7.694312073290    6 0.11801437733021    3    0
+## Lily       7.4612095969  0.458280392922    5 0.01251620018414    2    1
+## Layla      9.5860827516 -4.322810573503    7 0.19728223283142    4    0
+## Amelia     9.5900698339  5.540532558225    6 0.16804778492179    2    0
+## Emily     17.0811764036  4.427702883258    7 0.12470764076491    4    0
+## Madelyn   12.5899004858 -1.453248523176    5 0.02819869020540    1    0
+## Aubrey    17.5170253237 -9.085109466687    2 0.04739595582295    2    1
+## Adalyn    16.1529049756  8.740805252455    5 0.04275506641716    0    0
+## Madison    6.7119279922  3.380242334679    8 0.05731924836672    2    0
+## Chloe      9.5268880873  1.889655892737    6 0.05292445767878    1    1
+## Harper     9.2569978634  7.209460604936    6 0.05163498724707    0    1
+## Abigail   27.3518637305 -6.295257685706    3 0.05687556883901    1    1
+## Aaliyah   20.5297671226 -8.559501348063    1 0.11665906435861    4    0
+## Avery     23.7385250147 -9.054029677063    8 0.09498550007688    3    0
+## Evelyn    27.8181781439  7.395980055444    6 0.19713141497832    2    0
+## Kaylee    21.0210318185  8.038634913974    9 0.29099973848552    3    0
+## Ella       9.6170475545  3.171285171993    7 0.05054311847521    5    0
+## Ellie      9.4041028672 -0.825090226717    5 0.00585836373890    4    1
+## Scarlett  15.9944188934 -6.882613790222    7 0.05326422537897    1    0
+## Arianna   26.8754457882 -2.906945659779    9 0.02313189317162    2    0
+## Hailey    18.2252347456  9.132722900249    9 0.14284297430214    1    0
+## Nora       6.8887993130  3.297373717651    6 0.13979942818907    1    0
+## Addison    8.9606626026  1.932508642785    7 0.13050103528579    1    0
+## Brooklyn  15.7450454006 -8.518074946478    5 0.18730470102589    5    0
+## Hannah    22.6860392676  0.833838116378    9 0.01230108263632    4    0
+## Mila      18.0184660478  4.197558998130    7 0.04856717345459    4    0
+## Leah      29.4731015779  5.287653384730    5 0.07397661839301    2    0
+## Elizabeth 20.1494621904  3.423080514185    8 0.21481892548396    1    0
+## Sarah     24.9149753550  4.869227497838    5 0.20159499681884    4    0
+## Eliana    27.8005246654  4.233981864527    7 0.01305597648025    0    0
+## Mackenzie 18.1421208729 -8.737052977085    3 0.11634337849862    2    0
+## Peyton    21.1976025806  2.374891350046    4 0.19691791881184    4    1
+## Maria     11.3838485718  9.355569151230    9 0.33498000351708    3    0
+## Grace      6.5825296933  1.179763260297    5 0.39384115795444    2    0
+## Adeline   20.5867930147  7.113605593331    3 0.23699099507024    4    0
+## Elena     19.0115711163  0.589409205131    9 0.08500440511386    1    0
+## Anna      19.3322263430  9.208539663814    3 0.02585492779811    2    1
+## Victoria  -1.3401403567 -1.036413819529    9 0.10738020783030    3    0
+## Camilla   16.3750253196 -5.327127608471    7 0.00751319564200    2    0
+## Lillian   12.2986091072  7.937766094692   11 0.10015297537019    2    0
+## Natalie   11.2718710167 -6.016859193332    3 0.37764302722070    2    0
+## Jackson   20.4654417607  6.466320329346    7 0.04966104121368    2    0
+## Aiden      2.0035103636  0.044288556091    5 0.06988047803235    0    0
+## Lucas     27.1513113676 -1.277925618924    6 0.06671382735173    3    0
+## Liam      14.1179872172  9.009472853504    7 0.17225741469920    4    0
+## Noah      18.3999998388 -5.298306117766    5 0.07520516604806    3    0
+## Ethan     23.2375398360 -8.381794602610    2 0.10748658649571    2    0
+## Mason     26.8756908065 -4.906081897207   11 0.10101817040755    3    1
+## Caden      7.2959091130 -3.327881423756    6 0.01104864687851    5    0
+## Oliver    16.2361485340  8.996103531681    6 0.01608651053781    5    0
+## Elijah     9.9286821288  5.925150318071    3 0.26003930778395    1    0
+## Grayson   21.0779704597  6.039019585587    6 0.00479523179234    4    0
+## Jacob     13.3499196240 -5.554351331666    6 0.02300416248747    2    0
+## Michael   23.1032186581  5.140760978684    5 0.02402574707601    0    0
+## Benjamin   8.7686562810  3.662848463282    4 0.04503165382064    2    1
+## Carter    23.0423037802 -0.323464735411    7 0.00852398760617    1    1
+## James     30.6775260622  0.727832261473    4 0.20323046192421    2    1
+## Jayden    14.0143011881 -1.889815437607    7 0.00877242856167    3    0
+## Logan     11.3609079123 -0.808941456489    7 0.01143784146699    2    0
+## Alexander 11.8802700527  3.021263536066   10 0.05113154277205    2    0
+## Caleb     25.2016090247  6.239500404336    4 0.00189407076687    1    0
+## Ryan      19.5152648425  9.149114792235   11 0.05656963597155    1    0
+## Luke      32.6805542665 -0.792511315085    6 0.04988047857800    2    0
+## Daniel    18.7636592264  9.578678039834    5 0.00888972279305    1    0
+## Jack      13.4204384886 -9.829255244695    5 0.08087623010801    3    1
+## William    7.0340430149 -9.339245008305    5 0.04916144679818    0    0
+## Owen       1.0923849185 -6.371544501744    7 0.13724527486858    5    0
+## Gabriel   10.5183832371  0.449582743458    2 0.04502933177476    3    0
+## Matthew   19.2749720040  0.486286384985    6 0.14231792071160    1    0
+## Connor    17.4337834195  6.750956517644    7 0.00069341401128    2    0
+## Jayce     25.3887147491 -3.973977006972    6 0.06171809167912    1    1
+## Isaac     21.9411383750  9.913750924170    4 0.11365824099163    1    0
+## Sebastian 13.5706002720  5.543367271312    5 0.08992718594303    3    0
+## Henry      9.8469126729  0.811731265858    5 0.21198296690875    0    0
+## Muhammad  22.5547235471 -0.791070200503    9 0.10361639349669    1    0
+## Cameron    9.1412014607  7.123930850066    7 0.00746894870988    3    1
+## Wyatt     23.4697835083  8.215136942454    3 0.00071852705959    3    0
+## Dylan     21.8592481366  5.448319064453    5 0.26777704120766    4    0
+## Nathan    15.9622565254  8.859179294668    6 0.00623394114276    3    0
+## Nicholas  14.9431229964 -3.782155923545    7 0.13475610687862    2    1
+## Julian    11.7159413859  9.876922997646    1 0.06732882792130    4    1
+## Eli       16.7813810780 -4.015083936974    9 0.13879786400279    2    0
+## Levi      16.9444361441  5.684761065058    8 0.00806690550720    6    1
+## Isaiah    18.9350416393  1.464875508100    3 0.14545895552003    4    0
+## Landon    15.5555725919 -8.569849198684    8 0.02616881299764    1    0
+## David     18.6655555835 -5.116261625662    4 0.00067885321912    3    0
+## Christian 11.1496134509 -4.553827419877    5 0.11147624615941    0    0
+## Andrew    16.7662030927  2.718090941198    6 0.12016604892029    0    0
+## Brayden    4.0201644693 -4.481565901078    9 0.48373850390826    4    1
+## John      16.8453169616 -6.629325649701    7 0.32361155745933    4    1
+## Lincoln   12.4903377917  7.780601638369    5 0.01700789686577    2    0
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Create a data frame of the same data as above except make the binary
+  variable a factor ``DOMESTIC'' vs ``FOREIGN'' for 0 and 1
+  respectively. Use RStudio's \texttt{View} function to ensure this
+  worked as desired.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z}\OtherTok{=}\FunctionTok{as.data.frame}\NormalTok{(matrix\_fake\_first\_names,}\AttributeTok{row.names=}\NormalTok{fake\_first\_names)}
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      V1              V2 V3               V4 V5 V6
+## Sophia    15.7488359911  2.993334364146  2 0.07412788075291  3  0
+## Emma      20.9289067003  9.221343141980  7 0.15860706918664  2  0
+## Olivia    20.7256256925 -9.835995608009  9 0.10481979593996  1  1
+## Ava       22.3073938689 -3.338282601908  6 0.01394931868547  0  1
+## Mia       21.0366541415 -2.191735901870  6 0.21494635669616  4  1
+## Isabella  14.9034737415  1.260038926266  5 0.01355085822029  4  0
+## Riley     15.2527314409  9.829947371036  7 0.00734196235943  0  0
+## Aria       9.4017173615  5.134957712144  5 0.06678041826106  1  1
+## Zoe       18.3403738979 -1.872462490574  7 0.02585682722347  1  0
+## Charlotte 11.4088935400 -7.694312073290  6 0.11801437733021  3  0
+## Lily       7.4612095969  0.458280392922  5 0.01251620018414  2  1
+## Layla      9.5860827516 -4.322810573503  7 0.19728223283142  4  0
+## Amelia     9.5900698339  5.540532558225  6 0.16804778492179  2  0
+## Emily     17.0811764036  4.427702883258  7 0.12470764076491  4  0
+## Madelyn   12.5899004858 -1.453248523176  5 0.02819869020540  1  0
+## Aubrey    17.5170253237 -9.085109466687  2 0.04739595582295  2  1
+## Adalyn    16.1529049756  8.740805252455  5 0.04275506641716  0  0
+## Madison    6.7119279922  3.380242334679  8 0.05731924836672  2  0
+## Chloe      9.5268880873  1.889655892737  6 0.05292445767878  1  1
+## Harper     9.2569978634  7.209460604936  6 0.05163498724707  0  1
+## Abigail   27.3518637305 -6.295257685706  3 0.05687556883901  1  1
+## Aaliyah   20.5297671226 -8.559501348063  1 0.11665906435861  4  0
+## Avery     23.7385250147 -9.054029677063  8 0.09498550007688  3  0
+## Evelyn    27.8181781439  7.395980055444  6 0.19713141497832  2  0
+## Kaylee    21.0210318185  8.038634913974  9 0.29099973848552  3  0
+## Ella       9.6170475545  3.171285171993  7 0.05054311847521  5  0
+## Ellie      9.4041028672 -0.825090226717  5 0.00585836373890  4  1
+## Scarlett  15.9944188934 -6.882613790222  7 0.05326422537897  1  0
+## Arianna   26.8754457882 -2.906945659779  9 0.02313189317162  2  0
+## Hailey    18.2252347456  9.132722900249  9 0.14284297430214  1  0
+## Nora       6.8887993130  3.297373717651  6 0.13979942818907  1  0
+## Addison    8.9606626026  1.932508642785  7 0.13050103528579  1  0
+## Brooklyn  15.7450454006 -8.518074946478  5 0.18730470102589  5  0
+## Hannah    22.6860392676  0.833838116378  9 0.01230108263632  4  0
+## Mila      18.0184660478  4.197558998130  7 0.04856717345459  4  0
+## Leah      29.4731015779  5.287653384730  5 0.07397661839301  2  0
+## Elizabeth 20.1494621904  3.423080514185  8 0.21481892548396  1  0
+## Sarah     24.9149753550  4.869227497838  5 0.20159499681884  4  0
+## Eliana    27.8005246654  4.233981864527  7 0.01305597648025  0  0
+## Mackenzie 18.1421208729 -8.737052977085  3 0.11634337849862  2  0
+## Peyton    21.1976025806  2.374891350046  4 0.19691791881184  4  1
+## Maria     11.3838485718  9.355569151230  9 0.33498000351708  3  0
+## Grace      6.5825296933  1.179763260297  5 0.39384115795444  2  0
+## Adeline   20.5867930147  7.113605593331  3 0.23699099507024  4  0
+## Elena     19.0115711163  0.589409205131  9 0.08500440511386  1  0
+## Anna      19.3322263430  9.208539663814  3 0.02585492779811  2  1
+## Victoria  -1.3401403567 -1.036413819529  9 0.10738020783030  3  0
+## Camilla   16.3750253196 -5.327127608471  7 0.00751319564200  2  0
+## Lillian   12.2986091072  7.937766094692 11 0.10015297537019  2  0
+## Natalie   11.2718710167 -6.016859193332  3 0.37764302722070  2  0
+## Jackson   20.4654417607  6.466320329346  7 0.04966104121368  2  0
+## Aiden      2.0035103636  0.044288556091  5 0.06988047803235  0  0
+## Lucas     27.1513113676 -1.277925618924  6 0.06671382735173  3  0
+## Liam      14.1179872172  9.009472853504  7 0.17225741469920  4  0
+## Noah      18.3999998388 -5.298306117766  5 0.07520516604806  3  0
+## Ethan     23.2375398360 -8.381794602610  2 0.10748658649571  2  0
+## Mason     26.8756908065 -4.906081897207 11 0.10101817040755  3  1
+## Caden      7.2959091130 -3.327881423756  6 0.01104864687851  5  0
+## Oliver    16.2361485340  8.996103531681  6 0.01608651053781  5  0
+## Elijah     9.9286821288  5.925150318071  3 0.26003930778395  1  0
+## Grayson   21.0779704597  6.039019585587  6 0.00479523179234  4  0
+## Jacob     13.3499196240 -5.554351331666  6 0.02300416248747  2  0
+## Michael   23.1032186581  5.140760978684  5 0.02402574707601  0  0
+## Benjamin   8.7686562810  3.662848463282  4 0.04503165382064  2  1
+## Carter    23.0423037802 -0.323464735411  7 0.00852398760617  1  1
+## James     30.6775260622  0.727832261473  4 0.20323046192421  2  1
+## Jayden    14.0143011881 -1.889815437607  7 0.00877242856167  3  0
+## Logan     11.3609079123 -0.808941456489  7 0.01143784146699  2  0
+## Alexander 11.8802700527  3.021263536066 10 0.05113154277205  2  0
+## Caleb     25.2016090247  6.239500404336  4 0.00189407076687  1  0
+## Ryan      19.5152648425  9.149114792235 11 0.05656963597155  1  0
+## Luke      32.6805542665 -0.792511315085  6 0.04988047857800  2  0
+## Daniel    18.7636592264  9.578678039834  5 0.00888972279305  1  0
+## Jack      13.4204384886 -9.829255244695  5 0.08087623010801  3  1
+## William    7.0340430149 -9.339245008305  5 0.04916144679818  0  0
+## Owen       1.0923849185 -6.371544501744  7 0.13724527486858  5  0
+## Gabriel   10.5183832371  0.449582743458  2 0.04502933177476  3  0
+## Matthew   19.2749720040  0.486286384985  6 0.14231792071160  1  0
+## Connor    17.4337834195  6.750956517644  7 0.00069341401128  2  0
+## Jayce     25.3887147491 -3.973977006972  6 0.06171809167912  1  1
+## Isaac     21.9411383750  9.913750924170  4 0.11365824099163  1  0
+## Sebastian 13.5706002720  5.543367271312  5 0.08992718594303  3  0
+## Henry      9.8469126729  0.811731265858  5 0.21198296690875  0  0
+## Muhammad  22.5547235471 -0.791070200503  9 0.10361639349669  1  0
+## Cameron    9.1412014607  7.123930850066  7 0.00746894870988  3  1
+## Wyatt     23.4697835083  8.215136942454  3 0.00071852705959  3  0
+## Dylan     21.8592481366  5.448319064453  5 0.26777704120766  4  0
+## Nathan    15.9622565254  8.859179294668  6 0.00623394114276  3  0
+## Nicholas  14.9431229964 -3.782155923545  7 0.13475610687862  2  1
+## Julian    11.7159413859  9.876922997646  1 0.06732882792130  4  1
+## Eli       16.7813810780 -4.015083936974  9 0.13879786400279  2  0
+## Levi      16.9444361441  5.684761065058  8 0.00806690550720  6  1
+## Isaiah    18.9350416393  1.464875508100  3 0.14545895552003  4  0
+## Landon    15.5555725919 -8.569849198684  8 0.02616881299764  1  0
+## David     18.6655555835 -5.116261625662  4 0.00067885321912  3  0
+## Christian 11.1496134509 -4.553827419877  5 0.11147624615941  0  0
+## Andrew    16.7662030927  2.718090941198  6 0.12016604892029  0  0
+## Brayden    4.0201644693 -4.481565901078  9 0.48373850390826  4  1
+## John      16.8453169616 -6.629325649701  7 0.32361155745933  4  1
+## Lincoln   12.4903377917  7.780601638369  5 0.01700789686577  2  0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z[ ,}\DecValTok{6}\NormalTok{]}\OtherTok{=}\FunctionTok{factor}\NormalTok{(}\AttributeTok{x=}\NormalTok{(z[ ,}\DecValTok{6}\NormalTok{]),}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"domestic"}\NormalTok{,}\StringTok{"foreign"}\NormalTok{))}
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      V1              V2 V3               V4 V5       V6
+## Sophia    15.7488359911  2.993334364146  2 0.07412788075291  3 domestic
+## Emma      20.9289067003  9.221343141980  7 0.15860706918664  2 domestic
+## Olivia    20.7256256925 -9.835995608009  9 0.10481979593996  1  foreign
+## Ava       22.3073938689 -3.338282601908  6 0.01394931868547  0  foreign
+## Mia       21.0366541415 -2.191735901870  6 0.21494635669616  4  foreign
+## Isabella  14.9034737415  1.260038926266  5 0.01355085822029  4 domestic
+## Riley     15.2527314409  9.829947371036  7 0.00734196235943  0 domestic
+## Aria       9.4017173615  5.134957712144  5 0.06678041826106  1  foreign
+## Zoe       18.3403738979 -1.872462490574  7 0.02585682722347  1 domestic
+## Charlotte 11.4088935400 -7.694312073290  6 0.11801437733021  3 domestic
+## Lily       7.4612095969  0.458280392922  5 0.01251620018414  2  foreign
+## Layla      9.5860827516 -4.322810573503  7 0.19728223283142  4 domestic
+## Amelia     9.5900698339  5.540532558225  6 0.16804778492179  2 domestic
+## Emily     17.0811764036  4.427702883258  7 0.12470764076491  4 domestic
+## Madelyn   12.5899004858 -1.453248523176  5 0.02819869020540  1 domestic
+## Aubrey    17.5170253237 -9.085109466687  2 0.04739595582295  2  foreign
+## Adalyn    16.1529049756  8.740805252455  5 0.04275506641716  0 domestic
+## Madison    6.7119279922  3.380242334679  8 0.05731924836672  2 domestic
+## Chloe      9.5268880873  1.889655892737  6 0.05292445767878  1  foreign
+## Harper     9.2569978634  7.209460604936  6 0.05163498724707  0  foreign
+## Abigail   27.3518637305 -6.295257685706  3 0.05687556883901  1  foreign
+## Aaliyah   20.5297671226 -8.559501348063  1 0.11665906435861  4 domestic
+## Avery     23.7385250147 -9.054029677063  8 0.09498550007688  3 domestic
+## Evelyn    27.8181781439  7.395980055444  6 0.19713141497832  2 domestic
+## Kaylee    21.0210318185  8.038634913974  9 0.29099973848552  3 domestic
+## Ella       9.6170475545  3.171285171993  7 0.05054311847521  5 domestic
+## Ellie      9.4041028672 -0.825090226717  5 0.00585836373890  4  foreign
+## Scarlett  15.9944188934 -6.882613790222  7 0.05326422537897  1 domestic
+## Arianna   26.8754457882 -2.906945659779  9 0.02313189317162  2 domestic
+## Hailey    18.2252347456  9.132722900249  9 0.14284297430214  1 domestic
+## Nora       6.8887993130  3.297373717651  6 0.13979942818907  1 domestic
+## Addison    8.9606626026  1.932508642785  7 0.13050103528579  1 domestic
+## Brooklyn  15.7450454006 -8.518074946478  5 0.18730470102589  5 domestic
+## Hannah    22.6860392676  0.833838116378  9 0.01230108263632  4 domestic
+## Mila      18.0184660478  4.197558998130  7 0.04856717345459  4 domestic
+## Leah      29.4731015779  5.287653384730  5 0.07397661839301  2 domestic
+## Elizabeth 20.1494621904  3.423080514185  8 0.21481892548396  1 domestic
+## Sarah     24.9149753550  4.869227497838  5 0.20159499681884  4 domestic
+## Eliana    27.8005246654  4.233981864527  7 0.01305597648025  0 domestic
+## Mackenzie 18.1421208729 -8.737052977085  3 0.11634337849862  2 domestic
+## Peyton    21.1976025806  2.374891350046  4 0.19691791881184  4  foreign
+## Maria     11.3838485718  9.355569151230  9 0.33498000351708  3 domestic
+## Grace      6.5825296933  1.179763260297  5 0.39384115795444  2 domestic
+## Adeline   20.5867930147  7.113605593331  3 0.23699099507024  4 domestic
+## Elena     19.0115711163  0.589409205131  9 0.08500440511386  1 domestic
+## Anna      19.3322263430  9.208539663814  3 0.02585492779811  2  foreign
+## Victoria  -1.3401403567 -1.036413819529  9 0.10738020783030  3 domestic
+## Camilla   16.3750253196 -5.327127608471  7 0.00751319564200  2 domestic
+## Lillian   12.2986091072  7.937766094692 11 0.10015297537019  2 domestic
+## Natalie   11.2718710167 -6.016859193332  3 0.37764302722070  2 domestic
+## Jackson   20.4654417607  6.466320329346  7 0.04966104121368  2 domestic
+## Aiden      2.0035103636  0.044288556091  5 0.06988047803235  0 domestic
+## Lucas     27.1513113676 -1.277925618924  6 0.06671382735173  3 domestic
+## Liam      14.1179872172  9.009472853504  7 0.17225741469920  4 domestic
+## Noah      18.3999998388 -5.298306117766  5 0.07520516604806  3 domestic
+## Ethan     23.2375398360 -8.381794602610  2 0.10748658649571  2 domestic
+## Mason     26.8756908065 -4.906081897207 11 0.10101817040755  3  foreign
+## Caden      7.2959091130 -3.327881423756  6 0.01104864687851  5 domestic
+## Oliver    16.2361485340  8.996103531681  6 0.01608651053781  5 domestic
+## Elijah     9.9286821288  5.925150318071  3 0.26003930778395  1 domestic
+## Grayson   21.0779704597  6.039019585587  6 0.00479523179234  4 domestic
+## Jacob     13.3499196240 -5.554351331666  6 0.02300416248747  2 domestic
+## Michael   23.1032186581  5.140760978684  5 0.02402574707601  0 domestic
+## Benjamin   8.7686562810  3.662848463282  4 0.04503165382064  2  foreign
+## Carter    23.0423037802 -0.323464735411  7 0.00852398760617  1  foreign
+## James     30.6775260622  0.727832261473  4 0.20323046192421  2  foreign
+## Jayden    14.0143011881 -1.889815437607  7 0.00877242856167  3 domestic
+## Logan     11.3609079123 -0.808941456489  7 0.01143784146699  2 domestic
+## Alexander 11.8802700527  3.021263536066 10 0.05113154277205  2 domestic
+## Caleb     25.2016090247  6.239500404336  4 0.00189407076687  1 domestic
+## Ryan      19.5152648425  9.149114792235 11 0.05656963597155  1 domestic
+## Luke      32.6805542665 -0.792511315085  6 0.04988047857800  2 domestic
+## Daniel    18.7636592264  9.578678039834  5 0.00888972279305  1 domestic
+## Jack      13.4204384886 -9.829255244695  5 0.08087623010801  3  foreign
+## William    7.0340430149 -9.339245008305  5 0.04916144679818  0 domestic
+## Owen       1.0923849185 -6.371544501744  7 0.13724527486858  5 domestic
+## Gabriel   10.5183832371  0.449582743458  2 0.04502933177476  3 domestic
+## Matthew   19.2749720040  0.486286384985  6 0.14231792071160  1 domestic
+## Connor    17.4337834195  6.750956517644  7 0.00069341401128  2 domestic
+## Jayce     25.3887147491 -3.973977006972  6 0.06171809167912  1  foreign
+## Isaac     21.9411383750  9.913750924170  4 0.11365824099163  1 domestic
+## Sebastian 13.5706002720  5.543367271312  5 0.08992718594303  3 domestic
+## Henry      9.8469126729  0.811731265858  5 0.21198296690875  0 domestic
+## Muhammad  22.5547235471 -0.791070200503  9 0.10361639349669  1 domestic
+## Cameron    9.1412014607  7.123930850066  7 0.00746894870988  3  foreign
+## Wyatt     23.4697835083  8.215136942454  3 0.00071852705959  3 domestic
+## Dylan     21.8592481366  5.448319064453  5 0.26777704120766  4 domestic
+## Nathan    15.9622565254  8.859179294668  6 0.00623394114276  3 domestic
+## Nicholas  14.9431229964 -3.782155923545  7 0.13475610687862  2  foreign
+## Julian    11.7159413859  9.876922997646  1 0.06732882792130  4  foreign
+## Eli       16.7813810780 -4.015083936974  9 0.13879786400279  2 domestic
+## Levi      16.9444361441  5.684761065058  8 0.00806690550720  6  foreign
+## Isaiah    18.9350416393  1.464875508100  3 0.14545895552003  4 domestic
+## Landon    15.5555725919 -8.569849198684  8 0.02616881299764  1 domestic
+## David     18.6655555835 -5.116261625662  4 0.00067885321912  3 domestic
+## Christian 11.1496134509 -4.553827419877  5 0.11147624615941  0 domestic
+## Andrew    16.7662030927  2.718090941198  6 0.12016604892029  0 domestic
+## Brayden    4.0201644693 -4.481565901078  9 0.48373850390826  4  foreign
+## John      16.8453169616 -6.629325649701  7 0.32361155745933  4  foreign
+## Lincoln   12.4903377917  7.780601638369  5 0.01700789686577  2 domestic
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Print out a table of the binary variable. Then print out the
+  proportions of ``DOMESTIC'' vs ``FOREIGN''.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(z[ ,}\DecValTok{6}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] domestic domestic foreign  foreign  foreign  domestic domestic foreign 
+##   [9] domestic domestic foreign  domestic domestic domestic domestic foreign 
+##  [17] domestic domestic foreign  foreign  foreign  domestic domestic domestic
+##  [25] domestic domestic foreign  domestic domestic domestic domestic domestic
+##  [33] domestic domestic domestic domestic domestic domestic domestic domestic
+##  [41] foreign  domestic domestic domestic domestic foreign  domestic domestic
+##  [49] domestic domestic domestic domestic domestic domestic domestic domestic
+##  [57] foreign  domestic domestic domestic domestic domestic domestic foreign 
+##  [65] foreign  foreign  domestic domestic domestic domestic domestic domestic
+##  [73] domestic foreign  domestic domestic domestic domestic domestic foreign 
+##  [81] domestic domestic domestic domestic foreign  domestic domestic domestic
+##  [89] foreign  foreign  domestic foreign  domestic domestic domestic domestic
+##  [97] domestic foreign  foreign  domestic
+## Levels: domestic foreign
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(z[ ,}\DecValTok{6}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## domestic  foreign 
+##       76       24
+\end{verbatim}
+
+Print out a summary of the whole dataframe.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        V1                   V2                   V3           V4               
+##  Min.   :-1.3401404   Min.   :-9.8359956   Min.   : 1   Min.   :0.00067885322  
+##  1st Qu.:11.3386487   1st Qu.:-3.9842537   1st Qu.: 5   1st Qu.:0.02380228360  
+##  Median :16.7737921   Median : 1.2199011   Median : 6   Median :0.06860465298  
+##  Mean   :16.4205319   Mean   : 1.0482038   Mean   : 6   Mean   :0.09939876771  
+##  3rd Qu.:21.0249374   3rd Qu.: 5.9536176   3rd Qu.: 7   3rd Qu.:0.13904825505  
+##  Max.   :32.6805543   Max.   : 9.9137509   Max.   :11   Max.   :0.48373850391  
+##        V5              V6    
+##  Min.   :0.00   domestic:76  
+##  1st Qu.:1.00   foreign :24  
+##  Median :2.00                
+##  Mean   :2.28                
+##  3rd Qu.:3.00                
+##  Max.   :6.00
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Let \texttt{n\ =\ 50}. Create a n x n matrix \texttt{R} of exactly
+  50\% entries 0's, 25\% 1's 25\% 2's. These values should be in random
+  locations.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R}\OtherTok{=}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{data=}\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{50}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{25}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{25}\NormalTok{))),}\AttributeTok{nrow=}\DecValTok{50}\NormalTok{,}\AttributeTok{ncol=}\DecValTok{50}\NormalTok{,}\AttributeTok{byrow=}\ConstantTok{FALSE}\NormalTok{,}\AttributeTok{dimnames=}\ConstantTok{NULL}\NormalTok{)}
+\NormalTok{R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+##  [1,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+##  [2,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+##  [3,]    2    1    2    1    2    1    2    1    2     1     2     1     2
+##  [4,]    2    1    2    1    2    1    2    1    2     1     2     1     2
+##  [5,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+##  [6,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+##  [7,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+##  [8,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+##  [9,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [10,]    2    2    2    2    2    2    2    2    2     2     2     2     2
+## [11,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [12,]    1    2    1    2    1    2    1    2    1     2     1     2     1
+## [13,]    1    0    1    0    1    0    1    0    1     0     1     0     1
+## [14,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [15,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [16,]    1    0    1    0    1    0    1    0    1     0     1     0     1
+## [17,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [18,]    2    1    2    1    2    1    2    1    2     1     2     1     2
+## [19,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [20,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [21,]    1    1    1    1    1    1    1    1    1     1     1     1     1
+## [22,]    2    1    2    1    2    1    2    1    2     1     2     1     2
+## [23,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [24,]    0    2    0    2    0    2    0    2    0     2     0     2     0
+## [25,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [26,]    0    2    0    2    0    2    0    2    0     2     0     2     0
+## [27,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [28,]    1    1    1    1    1    1    1    1    1     1     1     1     1
+## [29,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [30,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [31,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [32,]    2    1    2    1    2    1    2    1    2     1     2     1     2
+## [33,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [34,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [35,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [36,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [37,]    1    2    1    2    1    2    1    2    1     2     1     2     1
+## [38,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [39,]    0    2    0    2    0    2    0    2    0     2     0     2     0
+## [40,]    1    1    1    1    1    1    1    1    1     1     1     1     1
+## [41,]    1    0    1    0    1    0    1    0    1     0     1     0     1
+## [42,]    1    0    1    0    1    0    1    0    1     0     1     0     1
+## [43,]    2    2    2    2    2    2    2    2    2     2     2     2     2
+## [44,]    2    0    2    0    2    0    2    0    2     0     2     0     2
+## [45,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [46,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [47,]    0    1    0    1    0    1    0    1    0     1     0     1     0
+## [48,]    0    0    0    0    0    0    0    0    0     0     0     0     0
+## [49,]    2    2    2    2    2    2    2    2    2     2     2     2     2
+## [50,]    0    2    0    2    0    2    0    2    0     2     0     2     0
+##       [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25]
+##  [1,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [2,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [3,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [4,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [5,]     0     2     0     2     0     2     0     2     0     2     0     2
+##  [6,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [7,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [8,]     1     0     1     0     1     0     1     0     1     0     1     0
+##  [9,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [10,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [11,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [12,]     2     1     2     1     2     1     2     1     2     1     2     1
+## [13,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [14,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [15,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [16,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [17,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [18,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [19,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [20,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [21,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [22,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [23,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [24,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [25,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [26,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [27,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [28,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [29,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [30,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [31,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [32,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [33,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [34,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [35,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [36,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [37,]     2     1     2     1     2     1     2     1     2     1     2     1
+## [38,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [39,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [40,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [41,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [42,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [43,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [44,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [45,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [46,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [47,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [48,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [49,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [50,]     2     0     2     0     2     0     2     0     2     0     2     0
+##       [,26] [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37]
+##  [1,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [2,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [3,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [4,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [5,]     0     2     0     2     0     2     0     2     0     2     0     2
+##  [6,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [7,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [8,]     1     0     1     0     1     0     1     0     1     0     1     0
+##  [9,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [10,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [11,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [12,]     2     1     2     1     2     1     2     1     2     1     2     1
+## [13,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [14,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [15,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [16,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [17,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [18,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [19,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [20,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [21,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [22,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [23,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [24,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [25,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [26,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [27,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [28,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [29,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [30,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [31,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [32,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [33,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [34,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [35,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [36,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [37,]     2     1     2     1     2     1     2     1     2     1     2     1
+## [38,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [39,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [40,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [41,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [42,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [43,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [44,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [45,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [46,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [47,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [48,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [49,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [50,]     2     0     2     0     2     0     2     0     2     0     2     0
+##       [,38] [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48] [,49]
+##  [1,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [2,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [3,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [4,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [5,]     0     2     0     2     0     2     0     2     0     2     0     2
+##  [6,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [7,]     0     0     0     0     0     0     0     0     0     0     0     0
+##  [8,]     1     0     1     0     1     0     1     0     1     0     1     0
+##  [9,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [10,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [11,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [12,]     2     1     2     1     2     1     2     1     2     1     2     1
+## [13,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [14,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [15,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [16,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [17,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [18,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [19,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [20,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [21,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [22,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [23,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [24,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [25,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [26,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [27,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [28,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [29,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [30,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [31,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [32,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [33,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [34,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [35,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [36,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [37,]     2     1     2     1     2     1     2     1     2     1     2     1
+## [38,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [39,]     2     0     2     0     2     0     2     0     2     0     2     0
+## [40,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [41,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [42,]     0     1     0     1     0     1     0     1     0     1     0     1
+## [43,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [44,]     0     2     0     2     0     2     0     2     0     2     0     2
+## [45,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [46,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [47,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [48,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [49,]     2     2     2     2     2     2     2     2     2     2     2     2
+## [50,]     2     0     2     0     2     0     2     0     2     0     2     0
+##       [,50]
+##  [1,]     0
+##  [2,]     0
+##  [3,]     1
+##  [4,]     1
+##  [5,]     0
+##  [6,]     0
+##  [7,]     0
+##  [8,]     1
+##  [9,]     0
+## [10,]     2
+## [11,]     0
+## [12,]     2
+## [13,]     0
+## [14,]     1
+## [15,]     0
+## [16,]     0
+## [17,]     0
+## [18,]     1
+## [19,]     0
+## [20,]     1
+## [21,]     1
+## [22,]     1
+## [23,]     0
+## [24,]     2
+## [25,]     1
+## [26,]     2
+## [27,]     0
+## [28,]     1
+## [29,]     0
+## [30,]     1
+## [31,]     0
+## [32,]     1
+## [33,]     1
+## [34,]     0
+## [35,]     0
+## [36,]     0
+## [37,]     2
+## [38,]     1
+## [39,]     2
+## [40,]     1
+## [41,]     0
+## [42,]     0
+## [43,]     2
+## [44,]     0
+## [45,]     0
+## [46,]     0
+## [47,]     1
+## [48,]     0
+## [49,]     2
+## [50,]     2
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Randomly punch holes (i.e.~\texttt{NA}) values in this matrix so that
+  an each entry is missing with probability 30\%.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R}\OtherTok{=}\FunctionTok{replace}\NormalTok{(R,}\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2500}\NormalTok{),}\AttributeTok{size=}\DecValTok{750}\NormalTok{),}\ConstantTok{NA}\NormalTok{)}
+\NormalTok{R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+##  [1,]    0    0   NA   NA   NA    0    0    0    0     0     0    NA     0
+##  [2,]    0    0    0    0    0    0    0   NA   NA     0     0    NA     0
+##  [3,]   NA    1    2   NA   NA    1    2    1   NA    NA    NA     1     2
+##  [4,]   NA   NA    2   NA   NA   NA    2    1    2    NA     2     1     2
+##  [5,]   NA    0   NA   NA    2   NA    2    0    2    NA    NA     0     2
+##  [6,]    0    0   NA    0   NA    0   NA   NA   NA     0    NA     0    NA
+##  [7,]    0    0   NA   NA    0    0    0    0   NA     0     0     0     0
+##  [8,]    0    1    0   NA    0   NA   NA    1    0    NA     0     1     0
+##  [9,]   NA    0    0    0    0    0    0    0    0     0    NA    NA     0
+## [10,]    2    2    2   NA   NA   NA    2   NA    2    NA    NA     2     2
+## [11,]    2   NA    2    0    2   NA    2    0   NA     0     2     0    NA
+## [12,]   NA   NA    1    2    1   NA    1    2    1    NA     1     2     1
+## [13,]   NA    0    1    0    1   NA    1    0   NA    NA     1     0     1
+## [14,]   NA    1    0    1    0   NA   NA    1    0     1     0     1    NA
+## [15,]    0    0    0    0    0    0    0    0    0     0     0    NA     0
+## [16,]    1    0    1    0   NA   NA    1    0    1     0     1     0     1
+## [17,]    2   NA   NA    0    2    0   NA   NA   NA     0     2     0     2
+## [18,]    2   NA    2    1    2    1    2    1    2     1     2    NA     2
+## [19,]    0   NA    0   NA    0    0    0    0    0    NA     0     0    NA
+## [20,]    0    1    0    1    0    1    0    1    0    NA     0     1     0
+## [21,]   NA    1    1   NA    1    1    1   NA   NA    NA     1     1     1
+## [22,]    2    1   NA    1    2    1    2   NA    2     1     2    NA     2
+## [23,]    2    0    2    0   NA    0   NA    0    2     0     2    NA    NA
+## [24,]    0    2    0    2    0   NA    0    2    0    NA     0    NA     0
+## [25,]   NA   NA    0    1    0    1    0   NA    0    NA     0     1     0
+## [26,]   NA    2    0    2    0   NA    0   NA   NA     2    NA    NA     0
+## [27,]    2    0    2    0    2    0   NA    0   NA     0    NA     0    NA
+## [28,]    1    1   NA    1    1    1    1   NA    1     1    NA    NA     1
+## [29,]    2   NA    2    0    2   NA    2    0    2    NA    NA     0    NA
+## [30,]   NA    1   NA   NA    0   NA   NA   NA   NA    NA    NA     1    NA
+## [31,]   NA    0    0    0    0    0    0   NA    0     0    NA     0     0
+## [32,]    2    1    2    1    2    1   NA    1    2     1     2     1     2
+## [33,]   NA    1    0    1    0   NA    0   NA   NA    NA    NA     1     0
+## [34,]    0   NA    0    0    0    0   NA   NA   NA     0     0    NA     0
+## [35,]    0    0   NA    0    0    0    0    0   NA     0    NA    NA     0
+## [36,]    2    0    2    0    2    0   NA    0   NA     0    NA    NA     2
+## [37,]    1   NA    1    2    1    2    1    2    1     2    NA    NA     1
+## [38,]    0    1   NA   NA    0    1    0    1   NA     1     0     1    NA
+## [39,]   NA    2    0    2    0    2    0   NA   NA     2    NA     2     0
+## [40,]    1   NA    1    1   NA    1    1   NA    1    NA     1     1     1
+## [41,]   NA    0    1    0    1   NA   NA   NA   NA     0    NA     0    NA
+## [42,]    1    0   NA    0    1    0    1    0    1     0    NA    NA     1
+## [43,]    2   NA    2    2   NA    2   NA   NA    2     2    NA    NA     2
+## [44,]   NA    0    2    0   NA    0   NA    0   NA    NA     2     0     2
+## [45,]   NA   NA   NA   NA    0   NA   NA    0    0     0     0     0     0
+## [46,]    0    0    0    0   NA   NA    0   NA   NA     0     0     0    NA
+## [47,]    0    1    0    1    0    1    0   NA    0    NA     0    NA    NA
+## [48,]    0    0   NA    0    0   NA    0   NA    0     0    NA    NA     0
+## [49,]    2    2    2    2    2    2    2   NA   NA     2     2     2     2
+## [50,]    0   NA    0    2   NA    2    0    2   NA     2     0     2     0
+##       [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25]
+##  [1,]    NA     0     0     0    NA     0     0     0     0     0     0     0
+##  [2,]     0    NA     0     0     0    NA     0     0     0    NA     0     0
+##  [3,]     1     2    NA    NA     1     2    NA     2     1     2     1     2
+##  [4,]     1    NA    NA     2     1    NA     1     2     1     2     1     2
+##  [5,]     0    NA     0    NA     0     2     0     2    NA    NA     0    NA
+##  [6,]     0    NA    NA     0    NA     0    NA     0    NA    NA    NA     0
+##  [7,]     0     0     0     0     0     0    NA     0     0     0     0     0
+##  [8,]     1     0    NA     0     1     0    NA     0     1     0     1     0
+##  [9,]     0     0     0     0     0    NA     0    NA    NA     0     0    NA
+## [10,]     2     2     2    NA     2     2     2    NA    NA     2    NA     2
+## [11,]    NA     2     0     2     0    NA     0    NA    NA    NA     0     2
+## [12,]     2     1     2    NA    NA    NA     2     1     2     1     2     1
+## [13,]     0     1     0    NA     0    NA    NA     1     0     1     0    NA
+## [14,]     1     0    NA     0    NA     0     1     0     1     0     1     0
+## [15,]     0    NA     0     0     0     0    NA     0    NA    NA    NA     0
+## [16,]    NA     1     0     1     0     1    NA     1     0    NA     0    NA
+## [17,]    NA    NA     0     2     0     2     0    NA     0    NA     0    NA
+## [18,]     1     2    NA    NA    NA     2     1     2     1     2     1    NA
+## [19,]     0    NA     0     0    NA    NA     0     0     0    NA     0     0
+## [20,]     1    NA     1     0     1     0    NA     0     1     0     1     0
+## [21,]    NA     1    NA     1     1     1    NA    NA     1     1    NA     1
+## [22,]    NA     2     1    NA     1     2     1     2     1     2     1     2
+## [23,]    NA     2    NA    NA     0     2     0    NA     0    NA     0     2
+## [24,]    NA     0    NA     0     2     0     2     0     2     0     2     0
+## [25,]    NA     0     1     0     1    NA     1    NA     1     0     1     0
+## [26,]    NA     0     2     0     2     0     2     0     2     0    NA    NA
+## [27,]     0     2     0     2     0     2     0     2    NA    NA     0     2
+## [28,]     1    NA     1    NA    NA    NA     1     1    NA    NA     1    NA
+## [29,]     0     2    NA     2     0     2     0     2    NA     2     0     2
+## [30,]     1     0     1     0     1     0     1     0     1    NA     1     0
+## [31,]     0     0    NA     0     0     0     0     0    NA     0    NA    NA
+## [32,]     1     2     1     2    NA     2    NA     2     1     2    NA     2
+## [33,]     1     0     1    NA     1     0     1    NA    NA    NA    NA     0
+## [34,]    NA     0     0     0    NA     0     0     0    NA     0     0     0
+## [35,]     0     0     0    NA    NA     0    NA     0    NA     0    NA     0
+## [36,]    NA     2     0     2     0     2     0    NA     0    NA     0     2
+## [37,]     2    NA     2     1     2     1     2     1     2    NA     2     1
+## [38,]     1     0    NA    NA     1     0     1     0     1     0    NA     0
+## [39,]    NA     0    NA     0     2     0     2     0     2     0     2     0
+## [40,]     1     1     1    NA     1     1     1    NA     1     1    NA     1
+## [41,]    NA    NA    NA     1    NA     1     0     1     0     1    NA     1
+## [42,]     0     1     0     1     0    NA     0     1    NA     1     0    NA
+## [43,]     2     2    NA     2    NA     2     2     2     2     2     2    NA
+## [44,]     0    NA     0     2    NA     2     0     2     0     2     0     2
+## [45,]     0    NA    NA    NA     0    NA     0    NA     0     0     0    NA
+## [46,]     0    NA     0    NA     0     0     0     0     0    NA    NA    NA
+## [47,]     1    NA    NA     0    NA     0    NA     0    NA     0    NA     0
+## [48,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [49,]    NA     2    NA     2     2     2     2     2    NA     2     2     2
+## [50,]    NA     0     2     0    NA     0    NA     0    NA    NA     2     0
+##       [,26] [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37]
+##  [1,]     0    NA     0    NA     0     0     0     0     0    NA    NA     0
+##  [2,]    NA    NA    NA    NA     0     0    NA     0     0     0    NA     0
+##  [3,]    NA     2     1     2     1    NA    NA     2    NA    NA     1     2
+##  [4,]     1     2    NA     2     1     2    NA     2    NA    NA     1     2
+##  [5,]     0    NA     0     2     0    NA     0    NA     0     2    NA     2
+##  [6,]     0    NA     0    NA     0     0     0     0     0    NA    NA     0
+##  [7,]     0     0     0     0     0     0    NA    NA     0    NA    NA     0
+##  [8,]    NA     0    NA     0     1     0    NA     0    NA    NA    NA     0
+##  [9,]    NA     0    NA    NA     0     0     0     0     0     0    NA     0
+## [10,]     2     2    NA    NA     2    NA     2    NA     2     2     2     2
+## [11,]     0    NA     0     2     0    NA    NA    NA     0     2     0    NA
+## [12,]    NA     1    NA     1     2     1    NA     1     2     1     2    NA
+## [13,]    NA    NA    NA     1     0     1     0    NA    NA     1     0    NA
+## [14,]     1     0     1     0     1    NA     1     0     1    NA    NA     0
+## [15,]     0     0     0    NA     0    NA     0     0     0     0    NA    NA
+## [16,]     0     1     0    NA    NA     1    NA     1     0     1     0     1
+## [17,]     0    NA     0     2    NA    NA     0    NA    NA     2     0     2
+## [18,]     1     2    NA    NA     1     2     1     2     1     2    NA    NA
+## [19,]     0    NA     0     0     0     0     0    NA     0     0    NA     0
+## [20,]     1     0    NA     0     1     0     1     0    NA     0    NA    NA
+## [21,]    NA     1     1     1     1     1    NA    NA     1     1     1     1
+## [22,]    NA     2    NA    NA     1    NA     1    NA     1    NA    NA     2
+## [23,]     0     2     0     2     0     2    NA     2     0     2     0    NA
+## [24,]     2     0     2    NA    NA     0     2     0    NA    NA     2    NA
+## [25,]     1     0     1     0     1    NA    NA    NA     1     0     1    NA
+## [26,]     2    NA    NA     0     2    NA     2    NA    NA    NA    NA    NA
+## [27,]     0    NA     0     2     0    NA     0     2     0     2     0     2
+## [28,]    NA    NA    NA    NA    NA     1     1     1     1     1     1     1
+## [29,]     0     2     0    NA     0     2     0     2    NA     2    NA    NA
+## [30,]     1     0    NA     0     1    NA     1     0     1     0    NA     0
+## [31,]     0     0     0     0     0    NA     0     0     0    NA    NA    NA
+## [32,]     1     2    NA     2     1     2    NA    NA     1     2     1     2
+## [33,]     1     0     1     0    NA    NA    NA     0    NA    NA    NA     0
+## [34,]     0     0     0    NA     0     0     0     0     0     0    NA     0
+## [35,]     0     0     0     0     0     0     0    NA     0     0     0     0
+## [36,]     0     2     0    NA     0     2     0     2     0     2     0     2
+## [37,]     2    NA     2     1     2    NA     2    NA     2    NA    NA     1
+## [38,]     1     0     1     0    NA     0    NA     0     1     0     1     0
+## [39,]     2    NA    NA     0    NA    NA     2    NA     2     0    NA     0
+## [40,]     1    NA     1    NA     1     1    NA     1    NA     1     1     1
+## [41,]     0    NA     0     1     0    NA    NA     1    NA     1     0     1
+## [42,]     0     1    NA     1    NA     1     0     1     0    NA    NA     1
+## [43,]    NA     2    NA    NA     2    NA     2     2    NA     2     2     2
+## [44,]     0    NA     0     2     0     2     0     2     0     2     0     2
+## [45,]     0     0     0     0    NA    NA     0     0     0    NA    NA    NA
+## [46,]     0    NA     0    NA     0     0     0     0     0     0     0     0
+## [47,]    NA     0    NA     0     1     0     1     0    NA     0     1     0
+## [48,]     0     0     0     0    NA    NA     0     0    NA     0     0     0
+## [49,]     2     2     2    NA    NA     2     2    NA     2    NA    NA     2
+## [50,]     2     0    NA     0     2     0     2    NA     2    NA     2    NA
+##       [,38] [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48] [,49]
+##  [1,]     0    NA    NA     0     0     0     0    NA     0    NA     0     0
+##  [2,]     0     0     0     0    NA     0     0     0     0     0    NA     0
+##  [3,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [4,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [5,]     0    NA     0     2     0     2     0     2     0    NA     0    NA
+##  [6,]    NA     0    NA     0     0     0    NA     0     0     0     0     0
+##  [7,]     0    NA    NA     0     0     0    NA     0    NA     0     0     0
+##  [8,]     1     0     1     0    NA     0     1    NA    NA     0    NA     0
+##  [9,]     0    NA     0     0    NA     0    NA     0    NA     0    NA     0
+## [10,]    NA     2     2    NA     2     2     2     2     2    NA     2     2
+## [11,]     0    NA     0     2    NA     2    NA     2     0     2    NA     2
+## [12,]     2     1     2     1    NA     1    NA     1     2     1     2    NA
+## [13,]     0     1     0    NA    NA    NA     0     1     0     1     0    NA
+## [14,]    NA     0     1     0    NA    NA    NA     0     1     0    NA    NA
+## [15,]     0     0    NA     0    NA     0     0    NA     0    NA     0     0
+## [16,]     0     1    NA    NA     0    NA     0     1     0     1    NA     1
+## [17,]     0    NA    NA     2    NA     2    NA    NA     0    NA    NA     2
+## [18,]     1     2     1     2     1     2    NA     2     1     2     1     2
+## [19,]     0     0     0     0     0     0    NA    NA    NA     0    NA     0
+## [20,]     1     0     1     0    NA     0     1     0     1     0     1     0
+## [21,]    NA     1     1     1     1    NA     1     1     1     1     1    NA
+## [22,]     1     2     1     2     1     2    NA     2     1     2     1     2
+## [23,]    NA     2     0     2    NA     2     0     2     0     2     0     2
+## [24,]    NA    NA     2     0    NA     0     2     0     2     0    NA     0
+## [25,]    NA    NA     1    NA     1     0    NA    NA    NA     0     1     0
+## [26,]     2     0    NA     0     2     0     2     0     2     0     2     0
+## [27,]     0     2     0    NA     0     2     0    NA     0     2     0     2
+## [28,]     1     1    NA     1     1    NA     1     1     1     1    NA     1
+## [29,]     0     2    NA     2    NA     2    NA     2    NA     2     0     2
+## [30,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [31,]     0     0     0     0     0     0    NA     0     0     0     0     0
+## [32,]    NA    NA     1     2     1    NA    NA     2     1     2     1     2
+## [33,]     1    NA     1     0     1     0    NA    NA     1     0     1    NA
+## [34,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [35,]     0     0     0     0     0    NA     0     0     0     0     0    NA
+## [36,]     0    NA     0     2     0     2     0     2     0     2     0    NA
+## [37,]    NA    NA     2     1    NA     1    NA     1     2     1     2     1
+## [38,]    NA     0    NA    NA     1     0    NA     0     1     0     1    NA
+## [39,]     2    NA    NA    NA     2     0     2     0    NA    NA     2     0
+## [40,]     1    NA    NA     1    NA    NA    NA     1     1    NA     1     1
+## [41,]     0     1     0     1     0     1     0     1     0     1     0    NA
+## [42,]    NA     1     0    NA    NA     1     0     1     0     1    NA     1
+## [43,]     2    NA     2     2    NA     2     2     2     2     2     2    NA
+## [44,]    NA    NA     0     2     0     2     0     2    NA     2     0     2
+## [45,]     0     0     0     0     0     0    NA     0     0     0    NA     0
+## [46,]     0     0     0     0    NA     0     0     0    NA     0    NA     0
+## [47,]     1     0     1    NA    NA     0    NA    NA    NA     0    NA     0
+## [48,]     0     0     0     0    NA     0     0     0    NA     0     0     0
+## [49,]     2     2     2    NA     2     2     2    NA     2     2     2     2
+## [50,]    NA    NA     2     0     2     0     2     0    NA    NA    NA     0
+##       [,50]
+##  [1,]     0
+##  [2,]     0
+##  [3,]    NA
+##  [4,]     1
+##  [5,]     0
+##  [6,]     0
+##  [7,]     0
+##  [8,]     1
+##  [9,]     0
+## [10,]     2
+## [11,]    NA
+## [12,]     2
+## [13,]     0
+## [14,]     1
+## [15,]     0
+## [16,]     0
+## [17,]     0
+## [18,]    NA
+## [19,]     0
+## [20,]    NA
+## [21,]     1
+## [22,]     1
+## [23,]     0
+## [24,]     2
+## [25,]     1
+## [26,]     2
+## [27,]     0
+## [28,]     1
+## [29,]    NA
+## [30,]     1
+## [31,]    NA
+## [32,]     1
+## [33,]     1
+## [34,]     0
+## [35,]     0
+## [36,]     0
+## [37,]     2
+## [38,]     1
+## [39,]     2
+## [40,]     1
+## [41,]     0
+## [42,]     0
+## [43,]     2
+## [44,]    NA
+## [45,]    NA
+## [46,]     0
+## [47,]     1
+## [48,]    NA
+## [49,]     2
+## [50,]     2
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Sort the rows in matrix \texttt{R} by the largest row sum to lowest.
+  Be careful about the NA's!
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rowSums}\NormalTok{(R,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  0  0 53 57 24  0  0 12  0 66 30 52 14 17  0 19 24 59  0 18 34 56 36 30 17
+## [26] 32 32 31 42 19  0 60 15  0  0 34 55 17 34 33 16 19 66 36  0  0 10  0 76 32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A}\OtherTok{=}\NormalTok{R[}\FunctionTok{order}\NormalTok{(}\FunctionTok{rowSums}\NormalTok{(R,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{),}\AttributeTok{decreasing=}\ConstantTok{TRUE}\NormalTok{), ]}
+\NormalTok{A}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+##  [1,]    2    2    2    2    2    2    2   NA   NA     2     2     2     2
+##  [2,]    2    2    2   NA   NA   NA    2   NA    2    NA    NA     2     2
+##  [3,]    2   NA    2    2   NA    2   NA   NA    2     2    NA    NA     2
+##  [4,]    2    1    2    1    2    1   NA    1    2     1     2     1     2
+##  [5,]    2   NA    2    1    2    1    2    1    2     1     2    NA     2
+##  [6,]   NA   NA    2   NA   NA   NA    2    1    2    NA     2     1     2
+##  [7,]    2    1   NA    1    2    1    2   NA    2     1     2    NA     2
+##  [8,]    1   NA    1    2    1    2    1    2    1     2    NA    NA     1
+##  [9,]   NA    1    2   NA   NA    1    2    1   NA    NA    NA     1     2
+## [10,]   NA   NA    1    2    1   NA    1    2    1    NA     1     2     1
+## [11,]    2   NA    2    0    2   NA    2    0    2    NA    NA     0    NA
+## [12,]    2    0    2    0   NA    0   NA    0    2     0     2    NA    NA
+## [13,]   NA    0    2    0   NA    0   NA    0   NA    NA     2     0     2
+## [14,]   NA    1    1   NA    1    1    1   NA   NA    NA     1     1     1
+## [15,]    2    0    2    0    2    0   NA    0   NA     0    NA    NA     2
+## [16,]   NA    2    0    2    0    2    0   NA   NA     2    NA     2     0
+## [17,]    1   NA    1    1   NA    1    1   NA    1    NA     1     1     1
+## [18,]   NA    2    0    2    0   NA    0   NA   NA     2    NA    NA     0
+## [19,]    2    0    2    0    2    0   NA    0   NA     0    NA     0    NA
+## [20,]    0   NA    0    2   NA    2    0    2   NA     2     0     2     0
+## [21,]    1    1   NA    1    1    1    1   NA    1     1    NA    NA     1
+## [22,]    2   NA    2    0    2   NA    2    0   NA     0     2     0    NA
+## [23,]    0    2    0    2    0   NA    0    2    0    NA     0    NA     0
+## [24,]   NA    0   NA   NA    2   NA    2    0    2    NA    NA     0     2
+## [25,]    2   NA   NA    0    2    0   NA   NA   NA     0     2     0     2
+## [26,]    1    0    1    0   NA   NA    1    0    1     0     1     0     1
+## [27,]   NA    1   NA   NA    0   NA   NA   NA   NA    NA    NA     1    NA
+## [28,]    1    0   NA    0    1    0    1    0    1     0    NA    NA     1
+## [29,]    0    1    0    1    0    1    0    1    0    NA     0     1     0
+## [30,]   NA    1    0    1    0   NA   NA    1    0     1     0     1    NA
+## [31,]   NA   NA    0    1    0    1    0   NA    0    NA     0     1     0
+## [32,]    0    1   NA   NA    0    1    0    1   NA     1     0     1    NA
+## [33,]   NA    0    1    0    1   NA   NA   NA   NA     0    NA     0    NA
+## [34,]   NA    1    0    1    0   NA    0   NA   NA    NA    NA     1     0
+## [35,]   NA    0    1    0    1   NA    1    0   NA    NA     1     0     1
+## [36,]    0    1    0   NA    0   NA   NA    1    0    NA     0     1     0
+## [37,]    0    1    0    1    0    1    0   NA    0    NA     0    NA    NA
+## [38,]    0    0   NA   NA   NA    0    0    0    0     0     0    NA     0
+## [39,]    0    0    0    0    0    0    0   NA   NA     0     0    NA     0
+## [40,]    0    0   NA    0   NA    0   NA   NA   NA     0    NA     0    NA
+## [41,]    0    0   NA   NA    0    0    0    0   NA     0     0     0     0
+## [42,]   NA    0    0    0    0    0    0    0    0     0    NA    NA     0
+## [43,]    0    0    0    0    0    0    0    0    0     0     0    NA     0
+## [44,]    0   NA    0   NA    0    0    0    0    0    NA     0     0    NA
+## [45,]   NA    0    0    0    0    0    0   NA    0     0    NA     0     0
+## [46,]    0   NA    0    0    0    0   NA   NA   NA     0     0    NA     0
+## [47,]    0    0   NA    0    0    0    0    0   NA     0    NA    NA     0
+## [48,]   NA   NA   NA   NA    0   NA   NA    0    0     0     0     0     0
+## [49,]    0    0    0    0   NA   NA    0   NA   NA     0     0     0    NA
+## [50,]    0    0   NA    0    0   NA    0   NA    0     0    NA    NA     0
+##       [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25]
+##  [1,]    NA     2    NA     2     2     2     2     2    NA     2     2     2
+##  [2,]     2     2     2    NA     2     2     2    NA    NA     2    NA     2
+##  [3,]     2     2    NA     2    NA     2     2     2     2     2     2    NA
+##  [4,]     1     2     1     2    NA     2    NA     2     1     2    NA     2
+##  [5,]     1     2    NA    NA    NA     2     1     2     1     2     1    NA
+##  [6,]     1    NA    NA     2     1    NA     1     2     1     2     1     2
+##  [7,]    NA     2     1    NA     1     2     1     2     1     2     1     2
+##  [8,]     2    NA     2     1     2     1     2     1     2    NA     2     1
+##  [9,]     1     2    NA    NA     1     2    NA     2     1     2     1     2
+## [10,]     2     1     2    NA    NA    NA     2     1     2     1     2     1
+## [11,]     0     2    NA     2     0     2     0     2    NA     2     0     2
+## [12,]    NA     2    NA    NA     0     2     0    NA     0    NA     0     2
+## [13,]     0    NA     0     2    NA     2     0     2     0     2     0     2
+## [14,]    NA     1    NA     1     1     1    NA    NA     1     1    NA     1
+## [15,]    NA     2     0     2     0     2     0    NA     0    NA     0     2
+## [16,]    NA     0    NA     0     2     0     2     0     2     0     2     0
+## [17,]     1     1     1    NA     1     1     1    NA     1     1    NA     1
+## [18,]    NA     0     2     0     2     0     2     0     2     0    NA    NA
+## [19,]     0     2     0     2     0     2     0     2    NA    NA     0     2
+## [20,]    NA     0     2     0    NA     0    NA     0    NA    NA     2     0
+## [21,]     1    NA     1    NA    NA    NA     1     1    NA    NA     1    NA
+## [22,]    NA     2     0     2     0    NA     0    NA    NA    NA     0     2
+## [23,]    NA     0    NA     0     2     0     2     0     2     0     2     0
+## [24,]     0    NA     0    NA     0     2     0     2    NA    NA     0    NA
+## [25,]    NA    NA     0     2     0     2     0    NA     0    NA     0    NA
+## [26,]    NA     1     0     1     0     1    NA     1     0    NA     0    NA
+## [27,]     1     0     1     0     1     0     1     0     1    NA     1     0
+## [28,]     0     1     0     1     0    NA     0     1    NA     1     0    NA
+## [29,]     1    NA     1     0     1     0    NA     0     1     0     1     0
+## [30,]     1     0    NA     0    NA     0     1     0     1     0     1     0
+## [31,]    NA     0     1     0     1    NA     1    NA     1     0     1     0
+## [32,]     1     0    NA    NA     1     0     1     0     1     0    NA     0
+## [33,]    NA    NA    NA     1    NA     1     0     1     0     1    NA     1
+## [34,]     1     0     1    NA     1     0     1    NA    NA    NA    NA     0
+## [35,]     0     1     0    NA     0    NA    NA     1     0     1     0    NA
+## [36,]     1     0    NA     0     1     0    NA     0     1     0     1     0
+## [37,]     1    NA    NA     0    NA     0    NA     0    NA     0    NA     0
+## [38,]    NA     0     0     0    NA     0     0     0     0     0     0     0
+## [39,]     0    NA     0     0     0    NA     0     0     0    NA     0     0
+## [40,]     0    NA    NA     0    NA     0    NA     0    NA    NA    NA     0
+## [41,]     0     0     0     0     0     0    NA     0     0     0     0     0
+## [42,]     0     0     0     0     0    NA     0    NA    NA     0     0    NA
+## [43,]     0    NA     0     0     0     0    NA     0    NA    NA    NA     0
+## [44,]     0    NA     0     0    NA    NA     0     0     0    NA     0     0
+## [45,]     0     0    NA     0     0     0     0     0    NA     0    NA    NA
+## [46,]    NA     0     0     0    NA     0     0     0    NA     0     0     0
+## [47,]     0     0     0    NA    NA     0    NA     0    NA     0    NA     0
+## [48,]     0    NA    NA    NA     0    NA     0    NA     0     0     0    NA
+## [49,]     0    NA     0    NA     0     0     0     0     0    NA    NA    NA
+## [50,]     0     0     0     0     0     0     0     0     0     0     0     0
+##       [,26] [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37]
+##  [1,]     2     2     2    NA    NA     2     2    NA     2    NA    NA     2
+##  [2,]     2     2    NA    NA     2    NA     2    NA     2     2     2     2
+##  [3,]    NA     2    NA    NA     2    NA     2     2    NA     2     2     2
+##  [4,]     1     2    NA     2     1     2    NA    NA     1     2     1     2
+##  [5,]     1     2    NA    NA     1     2     1     2     1     2    NA    NA
+##  [6,]     1     2    NA     2     1     2    NA     2    NA    NA     1     2
+##  [7,]    NA     2    NA    NA     1    NA     1    NA     1    NA    NA     2
+##  [8,]     2    NA     2     1     2    NA     2    NA     2    NA    NA     1
+##  [9,]    NA     2     1     2     1    NA    NA     2    NA    NA     1     2
+## [10,]    NA     1    NA     1     2     1    NA     1     2     1     2    NA
+## [11,]     0     2     0    NA     0     2     0     2    NA     2    NA    NA
+## [12,]     0     2     0     2     0     2    NA     2     0     2     0    NA
+## [13,]     0    NA     0     2     0     2     0     2     0     2     0     2
+## [14,]    NA     1     1     1     1     1    NA    NA     1     1     1     1
+## [15,]     0     2     0    NA     0     2     0     2     0     2     0     2
+## [16,]     2    NA    NA     0    NA    NA     2    NA     2     0    NA     0
+## [17,]     1    NA     1    NA     1     1    NA     1    NA     1     1     1
+## [18,]     2    NA    NA     0     2    NA     2    NA    NA    NA    NA    NA
+## [19,]     0    NA     0     2     0    NA     0     2     0     2     0     2
+## [20,]     2     0    NA     0     2     0     2    NA     2    NA     2    NA
+## [21,]    NA    NA    NA    NA    NA     1     1     1     1     1     1     1
+## [22,]     0    NA     0     2     0    NA    NA    NA     0     2     0    NA
+## [23,]     2     0     2    NA    NA     0     2     0    NA    NA     2    NA
+## [24,]     0    NA     0     2     0    NA     0    NA     0     2    NA     2
+## [25,]     0    NA     0     2    NA    NA     0    NA    NA     2     0     2
+## [26,]     0     1     0    NA    NA     1    NA     1     0     1     0     1
+## [27,]     1     0    NA     0     1    NA     1     0     1     0    NA     0
+## [28,]     0     1    NA     1    NA     1     0     1     0    NA    NA     1
+## [29,]     1     0    NA     0     1     0     1     0    NA     0    NA    NA
+## [30,]     1     0     1     0     1    NA     1     0     1    NA    NA     0
+## [31,]     1     0     1     0     1    NA    NA    NA     1     0     1    NA
+## [32,]     1     0     1     0    NA     0    NA     0     1     0     1     0
+## [33,]     0    NA     0     1     0    NA    NA     1    NA     1     0     1
+## [34,]     1     0     1     0    NA    NA    NA     0    NA    NA    NA     0
+## [35,]    NA    NA    NA     1     0     1     0    NA    NA     1     0    NA
+## [36,]    NA     0    NA     0     1     0    NA     0    NA    NA    NA     0
+## [37,]    NA     0    NA     0     1     0     1     0    NA     0     1     0
+## [38,]     0    NA     0    NA     0     0     0     0     0    NA    NA     0
+## [39,]    NA    NA    NA    NA     0     0    NA     0     0     0    NA     0
+## [40,]     0    NA     0    NA     0     0     0     0     0    NA    NA     0
+## [41,]     0     0     0     0     0     0    NA    NA     0    NA    NA     0
+## [42,]    NA     0    NA    NA     0     0     0     0     0     0    NA     0
+## [43,]     0     0     0    NA     0    NA     0     0     0     0    NA    NA
+## [44,]     0    NA     0     0     0     0     0    NA     0     0    NA     0
+## [45,]     0     0     0     0     0    NA     0     0     0    NA    NA    NA
+## [46,]     0     0     0    NA     0     0     0     0     0     0    NA     0
+## [47,]     0     0     0     0     0     0     0    NA     0     0     0     0
+## [48,]     0     0     0     0    NA    NA     0     0     0    NA    NA    NA
+## [49,]     0    NA     0    NA     0     0     0     0     0     0     0     0
+## [50,]     0     0     0     0    NA    NA     0     0    NA     0     0     0
+##       [,38] [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48] [,49]
+##  [1,]     2     2     2    NA     2     2     2    NA     2     2     2     2
+##  [2,]    NA     2     2    NA     2     2     2     2     2    NA     2     2
+##  [3,]     2    NA     2     2    NA     2     2     2     2     2     2    NA
+##  [4,]    NA    NA     1     2     1    NA    NA     2     1     2     1     2
+##  [5,]     1     2     1     2     1     2    NA     2     1     2     1     2
+##  [6,]     1     2     1     2     1     2     1     2     1     2     1     2
+##  [7,]     1     2     1     2     1     2    NA     2     1     2     1     2
+##  [8,]    NA    NA     2     1    NA     1    NA     1     2     1     2     1
+##  [9,]     1     2     1     2     1     2     1     2     1     2     1     2
+## [10,]     2     1     2     1    NA     1    NA     1     2     1     2    NA
+## [11,]     0     2    NA     2    NA     2    NA     2    NA     2     0     2
+## [12,]    NA     2     0     2    NA     2     0     2     0     2     0     2
+## [13,]    NA    NA     0     2     0     2     0     2    NA     2     0     2
+## [14,]    NA     1     1     1     1    NA     1     1     1     1     1    NA
+## [15,]     0    NA     0     2     0     2     0     2     0     2     0    NA
+## [16,]     2    NA    NA    NA     2     0     2     0    NA    NA     2     0
+## [17,]     1    NA    NA     1    NA    NA    NA     1     1    NA     1     1
+## [18,]     2     0    NA     0     2     0     2     0     2     0     2     0
+## [19,]     0     2     0    NA     0     2     0    NA     0     2     0     2
+## [20,]    NA    NA     2     0     2     0     2     0    NA    NA    NA     0
+## [21,]     1     1    NA     1     1    NA     1     1     1     1    NA     1
+## [22,]     0    NA     0     2    NA     2    NA     2     0     2    NA     2
+## [23,]    NA    NA     2     0    NA     0     2     0     2     0    NA     0
+## [24,]     0    NA     0     2     0     2     0     2     0    NA     0    NA
+## [25,]     0    NA    NA     2    NA     2    NA    NA     0    NA    NA     2
+## [26,]     0     1    NA    NA     0    NA     0     1     0     1    NA     1
+## [27,]     1     0     1     0     1     0     1     0     1     0     1     0
+## [28,]    NA     1     0    NA    NA     1     0     1     0     1    NA     1
+## [29,]     1     0     1     0    NA     0     1     0     1     0     1     0
+## [30,]    NA     0     1     0    NA    NA    NA     0     1     0    NA    NA
+## [31,]    NA    NA     1    NA     1     0    NA    NA    NA     0     1     0
+## [32,]    NA     0    NA    NA     1     0    NA     0     1     0     1    NA
+## [33,]     0     1     0     1     0     1     0     1     0     1     0    NA
+## [34,]     1    NA     1     0     1     0    NA    NA     1     0     1    NA
+## [35,]     0     1     0    NA    NA    NA     0     1     0     1     0    NA
+## [36,]     1     0     1     0    NA     0     1    NA    NA     0    NA     0
+## [37,]     1     0     1    NA    NA     0    NA    NA    NA     0    NA     0
+## [38,]     0    NA    NA     0     0     0     0    NA     0    NA     0     0
+## [39,]     0     0     0     0    NA     0     0     0     0     0    NA     0
+## [40,]    NA     0    NA     0     0     0    NA     0     0     0     0     0
+## [41,]     0    NA    NA     0     0     0    NA     0    NA     0     0     0
+## [42,]     0    NA     0     0    NA     0    NA     0    NA     0    NA     0
+## [43,]     0     0    NA     0    NA     0     0    NA     0    NA     0     0
+## [44,]     0     0     0     0     0     0    NA    NA    NA     0    NA     0
+## [45,]     0     0     0     0     0     0    NA     0     0     0     0     0
+## [46,]     0     0     0     0     0     0     0     0     0     0     0     0
+## [47,]     0     0     0     0     0    NA     0     0     0     0     0    NA
+## [48,]     0     0     0     0     0     0    NA     0     0     0    NA     0
+## [49,]     0     0     0     0    NA     0     0     0    NA     0    NA     0
+## [50,]     0     0     0     0    NA     0     0     0    NA     0     0     0
+##       [,50]
+##  [1,]     2
+##  [2,]     2
+##  [3,]     2
+##  [4,]     1
+##  [5,]    NA
+##  [6,]     1
+##  [7,]     1
+##  [8,]     2
+##  [9,]    NA
+## [10,]     2
+## [11,]    NA
+## [12,]     0
+## [13,]    NA
+## [14,]     1
+## [15,]     0
+## [16,]     2
+## [17,]     1
+## [18,]     2
+## [19,]     0
+## [20,]     2
+## [21,]     1
+## [22,]    NA
+## [23,]     2
+## [24,]     0
+## [25,]     0
+## [26,]     0
+## [27,]     1
+## [28,]     0
+## [29,]    NA
+## [30,]     1
+## [31,]     1
+## [32,]     1
+## [33,]     0
+## [34,]     1
+## [35,]     0
+## [36,]     1
+## [37,]     1
+## [38,]     0
+## [39,]     0
+## [40,]     0
+## [41,]     0
+## [42,]     0
+## [43,]     0
+## [44,]     0
+## [45,]    NA
+## [46,]     0
+## [47,]     0
+## [48,]    NA
+## [49,]     0
+## [50,]    NA
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  We will now learn the \texttt{apply} function. This is a handy
+  function that saves writing for loops which should be eschewed in R.
+  Use the apply function to compute a vector whose entries are the
+  standard deviation of each row. Use the apply function to compute a
+  vector whose entries are the standard deviation of each column. Be
+  careful about the NA's! This should be one line.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(A,}\DecValTok{1}\NormalTok{,sd,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.00000000000 0.00000000000 0.00000000000 0.50503537376 0.50389662287
+##  [6] 0.50522792407 0.50671170971 0.50630939785 0.50709255284 0.50395263068
+## [11] 0.98654043611 1.01342341942 1.01201881248 0.00000000000 1.00128123051
+## [16] 1.01503843785 0.00000000000 1.01600101600 0.99227787671 1.01503843785
+## [21] 0.00000000000 1.01600101600 1.00000000000 0.98373875368 1.00790526136
+## [26] 0.50671170971 0.50630939785 0.50630939785 0.50243310439 0.50709255284
+## [31] 0.50751921892 0.50630939785 0.50751921892 0.50854762772 0.50401612877
+## [36] 0.48507125007 0.47519096331 0.00000000000 0.00000000000 0.00000000000
+## [41] 0.00000000000 0.00000000000 0.00000000000 0.00000000000 0.00000000000
+## [46] 0.00000000000 0.00000000000 0.00000000000 0.00000000000 0.00000000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(A,}\DecValTok{2}\NormalTok{,sd,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.92728015446 0.72811999709 0.90626779780 0.80891195385 0.86705137903
+##  [6] 0.74528085202 0.84890218555 0.73611950197 0.89087080637 0.80070533423
+## [11] 0.89763418297 0.73780406526 0.88611864831 0.69695032136 0.91210348816
+## [16] 0.75935031654 0.89348717267 0.76477052086 0.93297660428 0.81188617377
+## [21] 0.88013003579 0.75126156523 0.89294371875 0.79282496717 0.91697374054
+## [26] 0.78187980687 0.92728015446 0.67202150503 0.87988269013 0.74293796182
+## [31] 0.85835983666 0.84281592351 0.87581131218 0.77459666924 0.89928422716
+## [36] 0.77757017987 0.89929425592 0.72803161335 0.86711818075 0.76786452693
+## [41] 0.91146543038 0.74971258861 0.94321958331 0.83666002653 0.88252260812
+## [46] 0.76786452693 0.89000123974 0.78000215471 0.92279572865 0.79939001135
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the \texttt{apply} function to compute a vector whose entries are
+  the count of entries that are 1 or 2 in each column. This should be
+  one line.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(A}\SpecialCharTok{!=}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,sum,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 17 17 20 18 17 16 17 12 15 12 14 17 20 17 18 13 15 17 19 18 18 19 16 17 17
+## [26] 17 15 10 15 19 15 15 15 15 19 14 19 16 16 20 19 16 19 14 22 20 21 19 18 22
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Use the \texttt{split} function to create a list whose keys are the
+  column number and values are the vector of the columns. Look at the
+  last example in the documentation \texttt{?split}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{L}\OtherTok{=}\FunctionTok{split}\NormalTok{(A,}\FunctionTok{col}\NormalTok{(A))}
+\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $`1`
+##  [1]  2  2  2  2  2 NA  2  1 NA NA  2  2 NA NA  2 NA  1 NA  2  0  1  2  0 NA  2
+## [26]  1 NA  1  0 NA NA  0 NA NA NA  0  0  0  0  0  0 NA  0  0 NA  0  0 NA  0  0
+## 
+## $`2`
+##  [1]  2  2 NA  1 NA NA  1 NA  1 NA NA  0  0  1  0  2 NA  2  0 NA  1 NA  2  0 NA
+## [26]  0  1  0  1  1 NA  1  0  1  0  1  1  0  0  0  0  0  0 NA  0 NA  0 NA  0  0
+## 
+## $`3`
+##  [1]  2  2  2  2  2  2 NA  1  2  1  2  2  2  1  2  0  1  0  2  0 NA  2  0 NA NA
+## [26]  1 NA NA  0  0  0 NA  1  0  1  0  0 NA  0 NA NA  0  0  0  0  0 NA NA  0 NA
+## 
+## $`4`
+##  [1]  2 NA  2  1  1 NA  1  2 NA  2  0  0  0 NA  0  2  1  2  0  2  1  0  2 NA  0
+## [26]  0 NA  0  1  1  1 NA  0  1  0 NA  1 NA  0  0 NA  0  0 NA  0  0  0 NA  0  0
+## 
+## $`5`
+##  [1]  2 NA NA  2  2 NA  2  1 NA  1  2 NA NA  1  2  0 NA  0  2 NA  1  2  0  2  2
+## [26] NA  0  1  0  0  0  0  1  0  1  0  0 NA  0 NA  0  0  0  0  0  0  0  0 NA  0
+## 
+## $`6`
+##  [1]  2 NA  2  1  1 NA  1  2  1 NA NA  0  0  1  0  2  1 NA  0  2  1 NA NA NA  0
+## [26] NA NA  0  1 NA  1  1 NA NA NA NA  1  0  0  0  0  0  0  0  0  0  0 NA NA NA
+## 
+## $`7`
+##  [1]  2  2 NA NA  2  2  2  1  2  1  2 NA NA  1 NA  0  1  0 NA  0  1  2  0  2 NA
+## [26]  1 NA  1  0 NA  0  0 NA  0  1 NA  0  0  0 NA  0  0  0  0  0 NA  0 NA  0  0
+## 
+## $`8`
+##  [1] NA NA NA  1  1  1 NA  2  1  2  0  0  0 NA  0 NA NA NA  0  2 NA  0  2  0 NA
+## [26]  0 NA  0  1  1 NA  1 NA NA  0  1 NA  0 NA NA  0  0  0  0 NA NA  0  0 NA NA
+## 
+## $`9`
+##  [1] NA  2  2  2  2  2  2  1 NA  1  2  2 NA NA NA NA  1 NA NA NA  1 NA  0  2 NA
+## [26]  1 NA  1  0  0  0 NA NA NA NA  0  0  0 NA NA NA  0  0  0  0 NA NA  0 NA  0
+## 
+## $`10`
+##  [1]  2 NA  2  1  1 NA  1  2 NA NA NA  0 NA NA  0  2 NA  2  0  2  1  0 NA NA  0
+## [26]  0 NA  0 NA  1 NA  1  0 NA NA NA NA  0  0  0  0  0  0 NA  0  0  0  0  0  0
+## 
+## $`11`
+##  [1]  2 NA NA  2  2  2  2 NA NA  1 NA  2  2  1 NA NA  1 NA NA  0 NA  2  0 NA  2
+## [26]  1 NA NA  0  0  0  0 NA NA  1  0  0  0  0 NA  0 NA  0  0 NA  0 NA  0  0 NA
+## 
+## $`12`
+##  [1]  2  2 NA  1 NA  1 NA NA  1  2  0 NA  0  1 NA  2  1 NA  0  2 NA  0 NA  0  0
+## [26]  0  1 NA  1  1  1  1  0  1  0  1 NA NA NA  0  0 NA NA  0  0 NA NA  0  0 NA
+## 
+## $`13`
+##  [1]  2  2  2  2  2  2  2  1  2  1 NA NA  2  1  2  0  1  0 NA  0  1 NA  0  2  2
+## [26]  1 NA  1  0 NA  0 NA NA  0  1  0 NA  0  0 NA  0  0  0 NA  0  0  0  0 NA  0
+## 
+## $`14`
+##  [1] NA  2  2  1  1  1 NA  2  1  2  0 NA  0 NA NA NA  1 NA  0 NA  1 NA NA  0 NA
+## [26] NA  1  0  1  1 NA  1 NA  1  0  1  1 NA  0  0  0  0  0  0  0 NA  0  0  0  0
+## 
+## $`15`
+##  [1]  2  2  2  2  2 NA  2 NA  2  1  2  2 NA  1  2  0  1  0  2  0 NA  2  0 NA NA
+## [26]  1  0  1 NA  0  0  0 NA  0  1  0 NA  0 NA NA  0  0 NA NA  0  0  0 NA NA  0
+## 
+## $`16`
+##  [1] NA  2 NA  1 NA NA  1  2 NA  2 NA NA  0 NA  0 NA  1  2  0  2  1  0 NA  0  0
+## [26]  0  1  0  1 NA  1 NA NA  1  0 NA NA  0  0 NA  0  0  0  0 NA  0  0 NA  0  0
+## 
+## $`17`
+##  [1]  2 NA  2  2 NA  2 NA  1 NA NA  2 NA  2  1  2  0 NA  0  2  0 NA  2  0 NA  2
+## [26]  1  0  1  0  0  0 NA  1 NA NA  0  0  0  0  0  0  0  0  0  0  0 NA NA NA  0
+## 
+## $`18`
+##  [1]  2  2 NA NA NA  1  1  2  1 NA  0  0 NA  1  0  2  1  2  0 NA NA  0  2  0  0
+## [26]  0  1  0  1 NA  1  1 NA  1  0  1 NA NA  0 NA  0  0  0 NA  0 NA NA  0  0  0
+## 
+## $`19`
+##  [1]  2  2  2  2  2 NA  2  1  2 NA  2  2  2  1  2  0  1  0  2  0 NA NA  0  2  2
+## [26]  1  0 NA  0  0 NA  0  1  0 NA  0  0  0 NA  0  0 NA  0 NA  0  0  0 NA  0  0
+## 
+## $`20`
+##  [1]  2  2  2 NA  1  1  1  2 NA  2  0  0  0 NA  0  2  1  2  0 NA  1  0  2  0  0
+## [26] NA  1  0 NA  1  1  1  0  1 NA NA NA  0  0 NA NA  0 NA  0  0  0 NA  0  0  0
+## 
+## $`21`
+##  [1]  2 NA  2  2  2  2  2  1  2  1  2 NA  2 NA NA  0 NA  0  2  0  1 NA  0  2 NA
+## [26]  1  0  1  0  0 NA  0  1 NA  1  0  0  0  0  0  0 NA  0  0  0  0  0 NA  0  0
+## 
+## $`22`
+##  [1] NA NA  2  1  1  1  1  2  1  2 NA  0  0  1  0  2  1  2 NA NA NA NA  2 NA  0
+## [26]  0  1 NA  1  1  1  1  0 NA  0  1 NA  0  0 NA  0 NA NA  0 NA NA NA  0  0  0
+## 
+## $`23`
+##  [1]  2  2  2  2  2  2  2 NA  2  1  2 NA  2  1 NA  0  1  0 NA NA NA NA  0 NA NA
+## [26] NA NA  1  0  0  0  0  1 NA  1  0  0  0 NA NA  0  0 NA NA  0  0  0  0 NA  0
+## 
+## $`24`
+##  [1]  2 NA  2 NA  1  1  1  2  1  2  0  0  0 NA  0  2 NA NA  0  2  1  0  2  0  0
+## [26]  0  1  0  1  1  1 NA NA NA  0  1 NA  0  0 NA  0  0 NA  0 NA  0 NA  0 NA  0
+## 
+## $`25`
+##  [1]  2  2 NA  2 NA  2  2  1  2  1  2  2  2  1  2  0  1 NA  2  0 NA  2  0 NA NA
+## [26] NA  0 NA  0  0  0  0  1  0 NA  0  0  0  0  0  0 NA  0  0 NA  0  0 NA NA  0
+## 
+## $`26`
+##  [1]  2  2 NA  1  1  1 NA  2 NA NA  0  0  0 NA  0  2  1  2  0  2 NA  0  2  0  0
+## [26]  0  1  0  1  1  1  1  0  1 NA NA NA  0 NA  0  0 NA  0  0  0  0  0  0  0  0
+## 
+## $`27`
+##  [1]  2  2  2  2  2  2  2 NA  2  1  2  2 NA  1  2 NA NA NA NA  0 NA NA  0 NA NA
+## [26]  1  0  1  0  0  0  0 NA  0 NA  0  0 NA NA NA  0  0  0 NA  0  0  0  0 NA  0
+## 
+## $`28`
+##  [1]  2 NA NA NA NA NA NA  2  1 NA  0  0  0  1  0 NA  1 NA  0 NA NA  0  2  0  0
+## [26]  0 NA NA NA  1  1  1  0  1 NA NA NA  0 NA  0  0 NA  0  0  0  0  0  0  0  0
+## 
+## $`29`
+##  [1] NA NA NA  2 NA  2 NA  1  2  1 NA  2  2  1 NA  0 NA  0  2  0 NA  2 NA  2  2
+## [26] NA  0  1  0  0  0  0  1  0  1  0  0 NA NA NA  0 NA NA  0  0 NA  0  0 NA  0
+## 
+## $`30`
+##  [1] NA  2  2  1  1  1  1  2  1  2  0  0  0  1  0 NA  1  2  0  2 NA  0 NA  0 NA
+## [26] NA  1 NA  1  1  1 NA  0 NA  0  1  1  0  0  0  0  0  0  0  0  0  0 NA  0 NA
+## 
+## $`31`
+##  [1]  2 NA NA  2  2  2 NA NA NA  1  2  2  2  1  2 NA  1 NA NA  0  1 NA  0 NA NA
+## [26]  1 NA  1  0 NA NA  0 NA NA  1  0  0  0  0  0  0  0 NA  0 NA  0  0 NA  0 NA
+## 
+## $`32`
+##  [1]  2  2  2 NA  1 NA  1  2 NA NA  0 NA  0 NA  0  2 NA  2  0  2  1 NA  2  0  0
+## [26] NA  1  0  1  1 NA NA NA NA  0 NA  1  0 NA  0 NA  0  0  0  0  0  0  0  0  0
+## 
+## $`33`
+##  [1] NA NA  2 NA  2  2 NA NA  2  1  2  2  2 NA  2 NA  1 NA  2 NA  1 NA  0 NA NA
+## [26]  1  0  1  0  0 NA  0  1  0 NA  0  0  0  0  0 NA  0  0 NA  0  0 NA  0  0  0
+## 
+## $`34`
+##  [1]  2  2 NA  1  1 NA  1  2 NA  2 NA  0  0  1  0  2 NA NA  0  2  1  0 NA  0 NA
+## [26]  0  1  0 NA  1  1  1 NA NA NA NA NA  0  0  0  0  0  0  0  0  0  0  0  0 NA
+## 
+## $`35`
+##  [1] NA  2  2  2  2 NA NA NA NA  1  2  2  2  1  2  0  1 NA  2 NA  1  2 NA  2  2
+## [26]  1  0 NA  0 NA  0  0  1 NA  1 NA  0 NA  0 NA NA  0  0  0 NA  0  0 NA  0  0
+## 
+## $`36`
+##  [1] NA  2  2  1 NA  1 NA NA  1  2 NA  0  0  1  0 NA  1 NA  0  2  1  0  2 NA  0
+## [26]  0 NA NA NA NA  1  1  0 NA  0 NA  1 NA NA NA NA NA NA NA NA NA  0 NA  0  0
+## 
+## $`37`
+##  [1]  2  2  2  2 NA  2  2  1  2 NA NA NA  2  1  2  0  1 NA  2 NA  1 NA NA  2  2
+## [26]  1  0  1 NA  0 NA  0  1  0 NA  0  0  0  0  0  0  0 NA  0 NA  0  0 NA  0  0
+## 
+## $`38`
+##  [1]  2 NA  2 NA  1  1  1 NA  1  2  0 NA NA NA  0  2  1  2  0 NA  1  0 NA  0  0
+## [26]  0  1 NA  1 NA NA NA  0  1  0  1  1  0  0 NA  0  0  0  0  0  0  0  0  0  0
+## 
+## $`39`
+##  [1]  2  2 NA NA  2  2  2 NA  2  1  2  2 NA  1 NA NA NA  0  2 NA  1 NA NA NA NA
+## [26]  1  0  1  0  0 NA  0  1 NA  1  0  0 NA  0  0 NA NA  0  0  0  0  0  0  0  0
+## 
+## $`40`
+##  [1]  2  2  2  1  1  1  1  2  1  2 NA  0  0  1  0 NA NA NA  0  2 NA  0  2  0 NA
+## [26] NA  1  0  1  1  1 NA  0  1  0  1  1 NA  0 NA NA  0 NA  0  0  0  0  0  0  0
+## 
+## $`41`
+##  [1] NA NA  2  2  2  2  2  1  2  1  2  2  2  1  2 NA  1  0 NA  0  1  2  0  2  2
+## [26] NA  0 NA  0  0 NA NA  1  0 NA  0 NA  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 
+## $`42`
+##  [1]  2  2 NA  1  1  1  1 NA  1 NA NA NA  0  1  0  2 NA  2  0  2  1 NA NA  0 NA
+## [26]  0  1 NA NA NA  1  1  0  1 NA NA NA  0 NA  0  0 NA NA  0  0  0  0  0 NA NA
+## 
+## $`43`
+##  [1]  2  2  2 NA  2  2  2  1  2  1  2  2  2 NA  2  0 NA  0  2  0 NA  2  0  2  2
+## [26] NA  0  1  0 NA  0  0  1  0 NA  0  0  0  0  0  0  0  0  0  0  0 NA  0  0  0
+## 
+## $`44`
+##  [1]  2  2  2 NA NA  1 NA NA  1 NA NA  0  0  1  0  2 NA  2  0  2  1 NA  2  0 NA
+## [26]  0  1  0  1 NA NA NA  0 NA  0  1 NA  0  0 NA NA NA  0 NA NA  0  0 NA  0  0
+## 
+## $`45`
+##  [1] NA  2  2  2  2  2  2  1  2  1  2  2  2  1  2  0  1  0 NA  0  1  2  0  2 NA
+## [26]  1  0  1  0  0 NA  0  1 NA  1 NA NA NA  0  0  0  0 NA NA  0  0  0  0  0  0
+## 
+## $`46`
+##  [1]  2  2  2  1  1  1  1  2  1  2 NA  0 NA  1  0 NA  1  2  0 NA  1  0  2  0  0
+## [26]  0  1  0  1  1 NA  1  0  1  0 NA NA  0  0  0 NA NA  0 NA  0  0  0  0 NA NA
+## 
+## $`47`
+##  [1]  2 NA  2  2  2  2  2  1  2  1  2  2  2  1  2 NA NA  0  2 NA  1  2  0 NA NA
+## [26]  1  0  1  0  0  0  0  1  0  1  0  0 NA  0  0  0  0 NA  0  0  0  0  0  0  0
+## 
+## $`48`
+##  [1]  2  2  2  1  1  1  1  2  1  2  0  0  0  1  0  2  1  2  0 NA NA NA NA  0 NA
+## [26] NA  1 NA  1 NA  1  1  0  1  0 NA NA  0 NA  0  0 NA  0 NA  0  0  0 NA NA  0
+## 
+## $`49`
+##  [1]  2  2 NA  2  2  2  2  1  2 NA  2  2  2 NA NA  0  1  0  2  0  1  2  0 NA  2
+## [26]  1  0  1  0 NA  0 NA NA NA NA  0  0  0  0  0  0  0  0  0  0  0 NA  0  0  0
+## 
+## $`50`
+##  [1]  2  2  2  1 NA  1  1  2 NA  2 NA  0 NA  1  0  2  1  2  0  2  1 NA  2  0  0
+## [26]  0  1  0 NA  1  1  1  0  1  0  1  1  0  0  0  0  0  0  0 NA  0  0 NA  0 NA
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  In one statement, use the \texttt{lapply} function to create a list
+  whose keys are the column number and values are themselves a list with
+  keys: ``min'' whose value is the minimum of the column, ``max'' whose
+  value is the maximum of the column, ``pct\_missing'' is the proportion
+  of missingness in the column and ``first\_NA'' whose value is the row
+  number of the first time the NA appears.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{lapply}\NormalTok{(L,summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $`1`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.87878788 2.00000000 2.00000000         17 
+## 
+## $`2`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.61111111 1.00000000 2.00000000         14 
+## 
+## $`3`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.89189189 2.00000000 2.00000000         13 
+## 
+## $`4`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.68421053 1.00000000 2.00000000         12 
+## 
+## $`5`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.71052632 1.75000000 2.00000000         12 
+## 
+## $`6`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+## 0.00000 0.00000 0.50000 0.65625 1.00000 2.00000      18 
+## 
+## $`7`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.72222222 1.25000000 2.00000000         14 
+## 
+## $`8`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.55172414 1.00000000 2.00000000         21 
+## 
+## $`9`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.85714286 2.00000000 2.00000000         22 
+## 
+## $`10`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  0.0000  0.0000  0.0000  0.5625  1.0000  2.0000      18 
+## 
+## $`11`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.76666667 2.00000000 2.00000000         20 
+## 
+## $`12`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  0.0000  0.0000  1.0000  0.6875  1.0000  2.0000      18 
+## 
+## $`13`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.84210526 2.00000000 2.00000000         12 
+## 
+## $`14`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.50000000 0.61764706 1.00000000 2.00000000         16 
+## 
+## $`15`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.85714286 2.00000000 2.00000000         15 
+## 
+## $`16`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  0.0000  0.0000  0.0000  0.5625  1.0000  2.0000      18 
+## 
+## $`17`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.71428571 2.00000000 2.00000000         15 
+## 
+## $`18`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.65714286 1.00000000 2.00000000         15 
+## 
+## $`19`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.84615385 2.00000000 2.00000000         11 
+## 
+## $`20`
+##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
+## 0.0000000 0.0000000 0.0000000 0.7027027 1.0000000 2.0000000        13 
+## 
+## $`21`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.74358974 2.00000000 2.00000000         11 
+## 
+## $`22`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.75757576 1.00000000 2.00000000         17 
+## 
+## $`23`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.78787879 2.00000000 2.00000000         17 
+## 
+## $`24`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.66666667 1.00000000 2.00000000         14 
+## 
+## $`25`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.78378378 2.00000000 2.00000000         13 
+## 
+## $`26`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.61538462 1.00000000 2.00000000         11 
+## 
+## $`27`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.78787879 2.00000000 2.00000000         17 
+## 
+## $`28`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.41935484 1.00000000 2.00000000         19 
+## 
+## $`29`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    0.00    0.00    0.00    0.75    2.00    2.00      18 
+## 
+## $`30`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.64102564 1.00000000 2.00000000         11 
+## 
+## $`31`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.50000000 0.76666667 1.75000000 2.00000000         20 
+## 
+## $`32`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.67647059 1.00000000 2.00000000         16 
+## 
+## $`33`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.72727273 2.00000000 2.00000000         17 
+## 
+## $`34`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##     0.0     0.0     0.0     0.6     1.0     2.0      15 
+## 
+## $`35`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.93939394 2.00000000 2.00000000         17 
+## 
+## $`36`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.73076923 1.00000000 2.00000000         24 
+## 
+## $`37`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.86111111 2.00000000 2.00000000         14 
+## 
+## $`38`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.56756757 1.00000000 2.00000000         13 
+## 
+## $`39`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.75757576 2.00000000 2.00000000         17 
+## 
+## $`40`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.71052632 1.00000000 2.00000000         12 
+## 
+## $`41`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##     0.0     0.0     0.0     0.8     2.0     2.0      10 
+## 
+## $`42`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##     0.0     0.0     1.0     0.7     1.0     2.0      20 
+## 
+## $`43`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.80952381 2.00000000 2.00000000          8 
+## 
+## $`44`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##     0.0     0.0     0.0     0.7     1.0     2.0      20 
+## 
+## $`45`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##   0.000   0.000   1.000   0.875   2.000   2.000      10 
+## 
+## $`46`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.71052632 1.00000000 2.00000000         12 
+## 
+## $`47`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.50000000 0.80952381 2.00000000 2.00000000          8 
+## 
+## $`48`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.74285714 1.00000000 2.00000000         15 
+## 
+## $`49`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 0.00000000 0.79487179 2.00000000 2.00000000         11 
+## 
+## $`50`
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max.       NA's 
+## 0.00000000 0.00000000 1.00000000 0.75609756 1.00000000 2.00000000          9
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Set a seed and then create a vector \texttt{v} consisting of a sample
+  of 1,000 iid normal realizations with mean -10 and variance 100.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1984}\NormalTok{)}
+\NormalTok{v}\OtherTok{=}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\AttributeTok{mean=}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{, }\AttributeTok{sd=}\DecValTok{10}\NormalTok{)}
+\NormalTok{v}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    [1]  -5.907967837848 -13.230249711542  -3.641476728099 -28.461287840183
+##    [5]  -0.463526345932   1.884898434527  -4.575455508365 -18.327254297791
+##    [9] -15.262078844968   4.159827577661  -7.179889961089  -7.120662839077
+##   [13]  -1.629517497472   0.239344591583  -9.822549038531   7.239940163302
+##   [17]  -8.792581946274 -27.755604888401  -8.738544713872 -27.137578805260
+##   [21]   2.419565681512  -5.702593853895 -16.486159297728  -0.966060191427
+##   [25] -10.132181397739  -7.524822819274  -9.082818499712  -1.777153515054
+##   [29] -15.863086046754   0.079884895602 -21.075868894090 -24.704241772855
+##   [33]  -3.941626535813  -0.437010718166  -7.023340366897 -18.540283563095
+##   [37]  15.043537483732 -12.885110625623 -13.414171677182  -7.566944854592
+##   [41]  -9.505236602083  -1.990133477413 -11.096117546406 -23.391921634916
+##   [45]   2.413408685243   1.844163655127 -14.567750979295   1.488720466005
+##   [49] -16.665213892812   1.086566888100   2.433551595888 -16.300208079582
+##   [53] -19.742576234419 -21.768072753930 -13.802778431831 -25.658038024179
+##   [57] -16.482595589272 -18.241688010551 -16.894619981025 -10.165760888876
+##   [61] -17.373002462482  -3.464473713071   6.659049799653 -13.321305243734
+##   [65]   6.165060618426 -12.827467143342 -15.400284670377 -16.295196830202
+##   [69]  -8.858491637950  -1.004302660494 -15.083693956850 -20.749370120806
+##   [73]  -7.001793876345 -15.521919477345 -14.212968950599 -12.698072164255
+##   [77]  -5.049670733834 -13.885928724155 -17.649676612805 -14.862037282777
+##   [81]  -8.049045745867  -4.382631482206 -14.567309558063 -24.493760197247
+##   [85]  -8.410937198140   1.713361217610 -14.720721343185 -18.831191856760
+##   [89]  12.241012961202 -11.088447670934 -10.780651567418 -15.831032592703
+##   [93] -28.406454759483   1.695408930296   2.435150380876  -2.631564364475
+##   [97] -14.358805528767 -17.592505011760   4.049569284674 -23.172188266200
+##  [101]  -7.879751588063 -21.319399604980  -5.253177064529 -17.270474137982
+##  [105]  13.227819475928 -16.292793210798 -21.821565209665 -10.108592633176
+##  [109] -15.445859335521 -11.220809642277 -22.579709047418  -4.192769747001
+##  [113] -13.520318820538  -6.113335687084 -11.557133250441 -18.800990882444
+##  [117] -25.304083452334 -13.589279914083   2.429299728249   0.570734650090
+##  [121] -11.000496522589 -23.389355173269  -0.483385834283 -18.244146028459
+##  [125] -10.164068610706  -0.440215338231  -1.615417652724 -16.582196348099
+##  [129] -12.942885941587 -12.285283135299 -17.394519397224 -21.285678626194
+##  [133] -10.143975759934  -0.393138709567  -8.959825919445   9.287073372188
+##  [137] -11.980988389462 -27.661027280500 -19.093465856646  -1.123038674641
+##  [141]  -3.112646264292 -26.673999255343 -19.344306610818  -8.777229397747
+##  [145] -15.051440042064  -4.423859629458 -11.564024080641  -5.163291482224
+##  [149] -36.418631696018   6.854775777339 -15.990068769031  -0.910574549707
+##  [153]  -1.688020714881  -1.476077303500 -20.906549236909 -14.191691955532
+##  [157] -16.896340546112  -1.401676233388  -7.201499375011 -19.259043541469
+##  [161] -10.997795405381 -10.713773019271  -7.464686074121 -12.212801514453
+##  [165] -12.388043119996 -13.064274160836 -12.874575170328 -31.105916505358
+##  [169] -14.203826790807  -9.539991533779 -10.894715446609 -10.820980389922
+##  [173]  -7.304629514025 -35.769294802098   0.752112928745   3.726943647744
+##  [177] -21.881178852076   9.188975131770 -16.657397669512 -10.813516107026
+##  [181]  -8.103999052844 -20.800994917407  -4.210874478890  -2.117733035486
+##  [185] -18.909043715714  -8.615838471917 -21.923244363360 -10.936292659635
+##  [189]  -4.603019466692  -3.172761926535 -11.732138682117 -17.490394782113
+##  [193] -23.732475277553   1.426375676840   1.008098510431  -7.064687878542
+##  [197]   4.748953178030 -13.019355856452  -1.285150417710  -1.963289931885
+##  [201] -12.481528001114  -8.656481870154 -16.870429133637 -16.927508118387
+##  [205] -12.848990628530  -7.195425835717 -17.449784307604 -21.399208107464
+##  [209] -21.100783063785 -19.499084208761  -8.042964192706 -11.296324270516
+##  [213]  10.463493457482 -22.947859415248 -19.316140097778  -1.226497233014
+##  [217] -10.506181574521 -20.733794220824  -8.699243250622 -12.071578583631
+##  [221] -10.032840378538 -18.552060616865 -16.269728934031 -20.409276351113
+##  [225]   0.303448901382 -14.281653835455  17.323465736565 -20.921447288450
+##  [229]  -3.515407274625 -20.409512570056 -15.280293165995 -12.720127823532
+##  [233] -15.827845910575 -18.264471427469  -0.657805250830 -18.662170035406
+##  [237]  -8.798509639946 -36.117488827543 -21.476608683333 -16.469819284430
+##  [241] -14.175947498281   4.355943448218  -1.416029803095 -11.075370039267
+##  [245]  -2.665790934636  -0.535948556907 -17.881662275682   7.820248935160
+##  [249] -22.436815366911 -24.258688546876  16.130540363414 -14.136750884748
+##  [253]  -2.715420499469   0.496226416136  -0.808340055030 -16.315756160382
+##  [257] -12.673371205995  -9.937855279209 -14.273729499485  -5.073282031037
+##  [261] -11.522713054223   0.876445073960 -10.519955278107  -6.731176388956
+##  [265] -10.769451555755  -4.637561693192   0.028611698593  -2.694812662126
+##  [269] -15.739656750104 -20.506762485241  -7.351332141586 -36.452300687178
+##  [273] -13.837302669591 -27.947268623835   0.108822407068  -5.739633467294
+##  [277]  -3.871617773590   1.885998355699 -16.522282041095 -21.775160138229
+##  [281]  -0.060037225553 -18.912748287671   2.765917537768 -20.981307373965
+##  [285] -16.680454737034 -13.273650030875 -23.393934493673 -25.793503654633
+##  [289]  -0.190753384703  -5.154931274367 -19.460353814415 -11.785024137145
+##  [293] -20.979996826494 -20.838989883113  -3.165014417318 -14.839167888403
+##  [297] -11.317729496136  -5.332116376795 -12.188243769223 -13.967688057996
+##  [301]  -9.295509521372 -15.052289167383  -9.360786531757  -4.192678742600
+##  [305]  -8.348648468926 -31.301770697135 -29.329902619032   5.544880344353
+##  [309]  -9.871539886944  -3.905640963104  -7.287178884539 -21.995362586758
+##  [313]  -0.080470852660 -16.666840477431  -4.669569201240   0.370911173633
+##  [317] -10.653258367436   4.671293101751 -12.353629140039  13.553788203311
+##  [321]   3.806083401774 -13.585889447945   3.222199058553   2.508451264930
+##  [325] -19.950984243812 -21.378209578435 -13.850683195657  -3.631332870780
+##  [329] -17.035650587295 -18.230616826056  -7.533150641651 -11.823589111847
+##  [333] -13.243559595414 -11.320464629371 -14.143129106299 -10.195474234454
+##  [337]  -6.511340343784  -8.912760383219  -0.414650025364 -10.501162155552
+##  [341] -23.652234829064  -5.959653434834 -17.352375249251 -24.111516551579
+##  [345]  -2.424698423065   1.975708313105 -21.362344389827 -25.516506747560
+##  [349] -11.377548628837 -15.390354626410 -31.137015785045  -1.160938203500
+##  [353] -19.377985710845 -18.287923989528 -13.705556890629 -11.375601091558
+##  [357]   4.875659387303   2.864997746061 -32.012858809437  -2.638440038843
+##  [361]  -8.478000242231  -5.405785712991 -16.892520789861  -6.936036269504
+##  [365]  -7.447241593357  -9.721933037352 -11.885865658399 -16.537068104134
+##  [369] -17.627134733980  -3.062658730968  -6.002217115931 -12.023507306357
+##  [373] -12.327543803221   6.119626314299  -4.983114962191 -14.399007658295
+##  [377]  -4.013288360791  -1.883170272478 -15.102679547797 -11.050272170434
+##  [381] -14.363243147620  -4.464214043029  -2.629156535275  14.502319261124
+##  [385] -31.321871328736  -3.539593168041 -20.894417832653  -9.450165991637
+##  [389]  -1.225885888899  -7.415846090362  -1.649700469415   4.350227400892
+##  [393]  -5.010632080886 -23.800476936127  -6.817542711522 -31.502239765334
+##  [397] -11.047175613040  -6.622695881386  11.237629339891 -18.703758956861
+##  [401]  -2.205454783091 -21.321996562884 -25.855691241136  -7.921666743598
+##  [405]  -9.143811026381  -8.218372648966  -8.584126343044  14.681311922425
+##  [409] -14.993470906826   6.616838199881 -27.343482016719 -21.682895202473
+##  [413] -10.565585010288  -5.685463546366  -2.770541513744  -8.350238346628
+##  [417] -11.826576647438 -18.722973104199  -7.933471222281 -14.927235102510
+##  [421] -18.270578602393  -5.215961524815 -15.571616732356 -15.596811966398
+##  [425]  -6.194221617798 -10.070238604443   2.315382744595  -8.067810855508
+##  [429] -14.267075260544  -6.526527147017 -11.047580651524  -3.137368110646
+##  [433] -18.245750888746 -30.552057037150 -23.814183527912  -8.582758008547
+##  [437]   4.356459050377  -4.446465740489   5.819946746543  -6.129245841334
+##  [441]   5.407106555049 -10.660886944598 -17.114772583616  -4.021091979941
+##  [445] -13.869595237718  -4.830242261184  -7.895332493730 -10.872138296623
+##  [449] -10.026750600324  -3.994633739237  -7.696606542032 -15.440426028858
+##  [453]  -3.079332558114   6.259108187631 -19.114264576306   3.627537230302
+##  [457]  -7.127879370304   3.524074837024 -12.540985685399   4.208205881425
+##  [461] -28.781815973298 -12.671541013176  -5.332865574341 -17.230031395726
+##  [465] -24.680622731835 -14.578427505458   8.718366880519 -10.153025011819
+##  [469] -29.964890731059 -19.235425621797 -11.828824474634 -15.474793038822
+##  [473]  -9.158717453615 -29.208401503265 -21.952455298257 -13.826007452325
+##  [477] -17.019785250090 -10.129245105693   1.733863802217 -14.617985522934
+##  [481]   0.235367029154   6.450253937556 -13.014461819738   1.448217192583
+##  [485]  -3.192832405117 -13.134230654378 -15.597797706019 -12.829081378583
+##  [489]  -6.266122903782 -11.875599885965 -14.232942706784  -1.292969758640
+##  [493] -24.294342296176  -7.076236318416 -10.358180764982   0.139955520932
+##  [497] -14.379240242927   0.322065338253   5.711308388404  12.256920288776
+##  [501] -14.555500962659 -19.493648190935 -11.719753718798  -2.162891902173
+##  [505]   3.976371252068 -26.579439344259 -15.331719279167 -11.990722368401
+##  [509] -10.949414902123  -9.725280111563 -18.462022709099 -14.468065135914
+##  [513] -11.920356634368 -21.084374805564   1.060806517513  -5.479358644945
+##  [517] -12.353273309171 -22.338954349380 -25.119591964887 -34.624231785273
+##  [521]  -6.569891829041   2.050389156138  -6.800072080707  -5.293094198328
+##  [525]   4.383736120283 -11.270635721473 -10.545392846413 -17.473493128655
+##  [529]   1.015595896583 -14.091697948425 -16.760754276234  -6.734904221588
+##  [533] -15.490309351448 -17.228813280232  -0.079881218364  -8.923050153828
+##  [537] -13.091375380636 -14.199899562882 -36.249558330412 -10.395774633912
+##  [541] -13.470102605547 -24.291421578637 -17.094404273500  -8.263239754959
+##  [545]  11.234068036702   2.610133414323 -19.046521659644   1.832498929591
+##  [549] -10.921069394892   0.034455297857  -1.398068451037  -1.813306366622
+##  [553] -24.221095233032 -17.644869052896  -4.644207116310 -10.034738354643
+##  [557]   7.086038673258  -4.081394812980  -6.519796607461 -18.082339206840
+##  [561] -14.545156559797  -6.070639784849 -34.983499401790  -8.776979782170
+##  [565]  -7.965457546340 -32.361264555459 -15.150271005176 -19.148165100135
+##  [569]  -5.779021112018  -5.931963334840  -6.365195393789   8.273378322711
+##  [573]  -4.546625860587 -14.816368355185 -25.905741019258 -22.965478299249
+##  [577]  18.075192110328  -5.920883762827 -15.894704145439 -11.200164333395
+##  [581]  -1.405939184275 -13.697798386752 -13.119126033441 -11.379516451225
+##  [585] -37.074451556222 -15.496907641250 -19.618370148513 -16.792911439902
+##  [589]  -4.866461852037 -24.853940997907 -29.725135036892  -7.654416730168
+##  [593] -16.295932239993  20.151469209636 -13.322685042422   6.940742013021
+##  [597] -25.663733794587  -6.757755029319 -18.516812361399 -23.623185620267
+##  [601]  -6.383344922303  -7.390285924840 -16.285803434962 -28.088962329960
+##  [605] -10.495421649439  -5.502488207977 -15.033282742532  -8.910278058209
+##  [609]   0.512003394753 -16.818292548619  -3.691836865301 -12.030644366977
+##  [613] -18.418463286127  -3.801052817304  13.089558143522  -4.668255127423
+##  [617] -18.844273991635  -6.470488648822  -8.467944989510  -3.664951564133
+##  [621] -18.220547763016   0.357650322319 -26.434044453216  10.407809854215
+##  [625] -10.788900099189 -23.033313441574 -15.033017754166  -2.880816350591
+##  [629] -15.171146029940 -12.282494835785 -28.808009935254 -12.395999748514
+##  [633]  -9.224246164120 -20.917442488056 -24.847987655300 -23.309909298221
+##  [637] -20.636053579667   1.016725286760 -11.294704311803 -12.297229114023
+##  [641]  -1.522031002062 -27.635161919387  -9.518945542057 -12.934459282048
+##  [645]   0.505594760025 -12.193711036033  -8.280145619826 -21.808004721312
+##  [649] -24.605469088986 -20.909805074367 -20.138092598866   3.246804042723
+##  [653] -14.438000510211   1.217300386578 -30.664473120921   1.355879211553
+##  [657] -28.664927449892 -22.500020744172 -20.361828823428 -10.095650478695
+##  [661] -12.988514056496  -0.353703243674  -8.070403580153   3.251492573138
+##  [665] -19.534374398250   7.014937713478 -11.524073469346 -24.799447757933
+##  [669]  -8.527391442382 -26.791814522303 -13.303570721329  -7.059140197667
+##  [673] -11.811353827334 -10.952040013190  10.270309057244  -3.283895463910
+##  [677]  -6.670895772173  -8.271726884733  -1.625013805320  -3.083814034457
+##  [681]  -7.689302588421  -7.667548822962  -6.939165371016  -5.646697276032
+##  [685] -22.264596145893 -18.435448077518 -18.648650770261 -20.241192118467
+##  [689] -21.027317571116  -2.736500183287 -12.850014512323 -24.077704497454
+##  [693] -23.600655806012  -1.378681680281   1.925360185559   6.037197863199
+##  [697] -12.131744796222 -20.632275908633  -9.320793585273 -13.211972497069
+##  [701]  -1.381834095610 -23.306193759365 -10.037345196936 -23.852224526905
+##  [705] -12.810797570694  -7.704551155983 -17.643989538282  -7.912312788601
+##  [709]  10.130711932976  -5.182476894938   3.990215952453   1.257358979452
+##  [713]  -7.744757196009  -7.453386074161  -6.912886264416  -1.747859909154
+##  [717] -15.387032084497 -18.856485158014 -14.284205646933 -17.630527150499
+##  [721]  -5.973156455445 -19.293096170008 -21.561668320724 -16.469840463653
+##  [725]  -2.645310225514 -11.630181068026 -13.269773029785 -22.066786820106
+##  [729] -23.535718246327 -22.921831868020 -22.460731450019  -9.194097583731
+##  [733] -24.961788728513  -9.160624244011   8.767533033464 -15.289125031823
+##  [737] -17.833353647457 -10.189036160689 -23.011310935238 -13.742595430912
+##  [741] -14.596774871344 -12.498919911353 -11.795642145879 -21.971668253703
+##  [745] -10.755296998140 -22.692931568827 -24.491900663328   1.358602220525
+##  [749] -11.886169259088  -9.840675198682 -13.002490755053  10.196817306848
+##  [753] -16.770163023441  10.520596183913 -32.888934358354  -3.836071446515
+##  [757]  -2.825594924180   5.222152700027 -30.476401194871 -17.761650209474
+##  [761]   1.163287296688 -13.245602348485  -6.816767463464  -4.053374520024
+##  [765] -20.841630693010  -8.454074401458 -22.592800248113 -17.868129362409
+##  [769]  -4.870512278589 -11.646716408076  -1.882013894074  -5.216040446776
+##  [773] -24.724692654231  -8.081347295116   0.075142601202  -2.595774573009
+##  [777]  -3.956522552684   2.836004511918 -15.427987440477 -16.728096137994
+##  [781] -16.235706216531 -13.400996555262 -17.027197218526  -5.626307081955
+##  [785] -21.279992876218   6.175452799584  -2.034637399608  -0.987570319110
+##  [789] -30.721000707981   2.411869495672  -3.255317539253 -12.735896100006
+##  [793] -13.574793779872 -20.136239520409 -16.115411018193   2.383242199250
+##  [797]  -8.668264007508 -19.835627640429 -31.042141504609 -23.373248228689
+##  [801] -18.674176331499 -11.818848083992 -12.138470145355   0.965961017079
+##  [805]  -6.103533758463 -21.382939602587 -17.105425766300 -17.865370376538
+##  [809] -11.214421288463  -5.486979570914  -2.890127739091 -27.683528121239
+##  [813] -20.300215423144 -17.682174924247 -23.603745463959  -3.118999025381
+##  [817]   6.992072305571  -9.220136340306 -12.662861162528   4.504170047680
+##  [821]  -6.591060975043  -6.766576256497 -23.246911356221   1.195313668134
+##  [825] -13.267236620648   3.805167481101   1.866820447964 -17.146761752978
+##  [829] -14.716643083454 -20.587686508747  -5.862627404996  -3.357646076817
+##  [833] -13.253337044886 -10.657245124878 -17.430851815142 -18.857815794514
+##  [837]  -1.570414913321 -22.983821329745  -1.828951836073  -7.409274592819
+##  [841] -22.243251475791  -8.385006744564 -18.546972774969 -13.640683500843
+##  [845] -12.208594516976 -13.786681397402 -14.797433816646  -3.692713570951
+##  [849]  -5.757700853492  -7.624217656462 -17.866840232006 -32.338761142262
+##  [853]  -1.699971459628   4.274093673272 -12.943019145814  -5.346004927162
+##  [857]   0.576473737031 -11.926587523145  -8.020020948113  -3.804940400593
+##  [861]   7.418474128932  -6.881962690596   1.462574291375 -26.377141719257
+##  [865]  -9.439039554436 -31.432286114822   9.296192256955  -7.278129105980
+##  [869] -17.108840045471  -4.173688842575  16.832244966630 -14.170754881253
+##  [873] -13.076863414513 -14.471540416624 -16.397904276812  -0.594558700914
+##  [877]   0.655111536204  -4.124118076765 -23.993803075941 -11.934902243331
+##  [881] -24.043704609620   4.929232838767  -4.974201447739  -4.396818561231
+##  [885]   2.583795483214  -5.854809802245  -8.515997485576  -0.632613656023
+##  [889]  -1.810246577249  -0.840016362101 -21.542492459438   1.406589479366
+##  [893] -15.062480221766  -5.288125629505   4.518471778389  -1.627866678623
+##  [897]   7.824685988660  -3.379611518472   4.328321561186  -6.991724341270
+##  [901]  15.604521456049 -15.998362421540   6.759240162884 -11.091065339937
+##  [905] -14.503382238486  -8.062595302692  -4.680961288146 -19.648129307928
+##  [909]  -5.133941747158 -27.271084932827  -8.189517366368 -13.783325527097
+##  [913]   0.775835008295 -24.924236717901   4.823427817493  -8.277910139633
+##  [917] -18.432308414271 -15.496054534321 -10.492922671606 -26.661529285528
+##  [921]  -6.371823984003 -11.551026691417   0.166512808679  -1.478373083754
+##  [925] -19.195115577427  -2.508490616413 -21.266954368021  -7.326771716285
+##  [929] -15.546732144415 -13.253557701186  -9.019487664448  -2.261330442106
+##  [933]  -0.256667769085  -1.810942994580 -18.229719923919  15.067205185317
+##  [937] -14.137841420159   4.916043498359  -8.536090458718 -20.557742188117
+##  [941] -12.616347254563 -21.263577347676 -26.561000566661 -16.434811095816
+##  [945] -12.116937160783 -17.708349873144  -9.529553483022  -3.519242270986
+##  [949]  -2.785983145909  -9.652226706081   4.256032373663 -10.079037741626
+##  [953] -20.881090388130  -9.520827512512  -2.909114042759  -3.545075397819
+##  [957]  -8.112496881723 -25.065071197945 -11.227639418990  -3.084041925953
+##  [961]  -4.089651133319 -21.802231017585 -26.619907286451  -4.541318223911
+##  [965]   6.946753383932 -12.107801572086 -11.513590454149 -28.367633799160
+##  [969]  -5.819835243973 -22.120006238393  -8.064739337816  -6.853646958583
+##  [973] -30.536354845714  -4.741093905914  -4.138380817021 -27.545721102617
+##  [977]  12.581803528468   0.408654403883 -11.179603552132 -19.761283307194
+##  [981]  -4.459718417565   8.332551147257  -8.560509630305  -0.972337434717
+##  [985]   5.609664333370  -2.752444433041  -4.046963301637 -31.109777308833
+##  [989] -23.120062908659 -24.351341934072  -1.765302502889  -0.217312241380
+##  [993]  -4.577909083109   3.489837076073  -7.861940827184 -11.654735703889
+##  [997] -32.307206322589 -10.891012634756  -8.758025142259 -20.952176209139
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Repeat this exercise by resetting the seed to ensure you obtain the
+  same results.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1984}\NormalTok{)}
+\FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\AttributeTok{mean=}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{, }\AttributeTok{sd=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    [1]  -5.907967837848 -13.230249711542  -3.641476728099 -28.461287840183
+##    [5]  -0.463526345932   1.884898434527  -4.575455508365 -18.327254297791
+##    [9] -15.262078844968   4.159827577661  -7.179889961089  -7.120662839077
+##   [13]  -1.629517497472   0.239344591583  -9.822549038531   7.239940163302
+##   [17]  -8.792581946274 -27.755604888401  -8.738544713872 -27.137578805260
+##   [21]   2.419565681512  -5.702593853895 -16.486159297728  -0.966060191427
+##   [25] -10.132181397739  -7.524822819274  -9.082818499712  -1.777153515054
+##   [29] -15.863086046754   0.079884895602 -21.075868894090 -24.704241772855
+##   [33]  -3.941626535813  -0.437010718166  -7.023340366897 -18.540283563095
+##   [37]  15.043537483732 -12.885110625623 -13.414171677182  -7.566944854592
+##   [41]  -9.505236602083  -1.990133477413 -11.096117546406 -23.391921634916
+##   [45]   2.413408685243   1.844163655127 -14.567750979295   1.488720466005
+##   [49] -16.665213892812   1.086566888100   2.433551595888 -16.300208079582
+##   [53] -19.742576234419 -21.768072753930 -13.802778431831 -25.658038024179
+##   [57] -16.482595589272 -18.241688010551 -16.894619981025 -10.165760888876
+##   [61] -17.373002462482  -3.464473713071   6.659049799653 -13.321305243734
+##   [65]   6.165060618426 -12.827467143342 -15.400284670377 -16.295196830202
+##   [69]  -8.858491637950  -1.004302660494 -15.083693956850 -20.749370120806
+##   [73]  -7.001793876345 -15.521919477345 -14.212968950599 -12.698072164255
+##   [77]  -5.049670733834 -13.885928724155 -17.649676612805 -14.862037282777
+##   [81]  -8.049045745867  -4.382631482206 -14.567309558063 -24.493760197247
+##   [85]  -8.410937198140   1.713361217610 -14.720721343185 -18.831191856760
+##   [89]  12.241012961202 -11.088447670934 -10.780651567418 -15.831032592703
+##   [93] -28.406454759483   1.695408930296   2.435150380876  -2.631564364475
+##   [97] -14.358805528767 -17.592505011760   4.049569284674 -23.172188266200
+##  [101]  -7.879751588063 -21.319399604980  -5.253177064529 -17.270474137982
+##  [105]  13.227819475928 -16.292793210798 -21.821565209665 -10.108592633176
+##  [109] -15.445859335521 -11.220809642277 -22.579709047418  -4.192769747001
+##  [113] -13.520318820538  -6.113335687084 -11.557133250441 -18.800990882444
+##  [117] -25.304083452334 -13.589279914083   2.429299728249   0.570734650090
+##  [121] -11.000496522589 -23.389355173269  -0.483385834283 -18.244146028459
+##  [125] -10.164068610706  -0.440215338231  -1.615417652724 -16.582196348099
+##  [129] -12.942885941587 -12.285283135299 -17.394519397224 -21.285678626194
+##  [133] -10.143975759934  -0.393138709567  -8.959825919445   9.287073372188
+##  [137] -11.980988389462 -27.661027280500 -19.093465856646  -1.123038674641
+##  [141]  -3.112646264292 -26.673999255343 -19.344306610818  -8.777229397747
+##  [145] -15.051440042064  -4.423859629458 -11.564024080641  -5.163291482224
+##  [149] -36.418631696018   6.854775777339 -15.990068769031  -0.910574549707
+##  [153]  -1.688020714881  -1.476077303500 -20.906549236909 -14.191691955532
+##  [157] -16.896340546112  -1.401676233388  -7.201499375011 -19.259043541469
+##  [161] -10.997795405381 -10.713773019271  -7.464686074121 -12.212801514453
+##  [165] -12.388043119996 -13.064274160836 -12.874575170328 -31.105916505358
+##  [169] -14.203826790807  -9.539991533779 -10.894715446609 -10.820980389922
+##  [173]  -7.304629514025 -35.769294802098   0.752112928745   3.726943647744
+##  [177] -21.881178852076   9.188975131770 -16.657397669512 -10.813516107026
+##  [181]  -8.103999052844 -20.800994917407  -4.210874478890  -2.117733035486
+##  [185] -18.909043715714  -8.615838471917 -21.923244363360 -10.936292659635
+##  [189]  -4.603019466692  -3.172761926535 -11.732138682117 -17.490394782113
+##  [193] -23.732475277553   1.426375676840   1.008098510431  -7.064687878542
+##  [197]   4.748953178030 -13.019355856452  -1.285150417710  -1.963289931885
+##  [201] -12.481528001114  -8.656481870154 -16.870429133637 -16.927508118387
+##  [205] -12.848990628530  -7.195425835717 -17.449784307604 -21.399208107464
+##  [209] -21.100783063785 -19.499084208761  -8.042964192706 -11.296324270516
+##  [213]  10.463493457482 -22.947859415248 -19.316140097778  -1.226497233014
+##  [217] -10.506181574521 -20.733794220824  -8.699243250622 -12.071578583631
+##  [221] -10.032840378538 -18.552060616865 -16.269728934031 -20.409276351113
+##  [225]   0.303448901382 -14.281653835455  17.323465736565 -20.921447288450
+##  [229]  -3.515407274625 -20.409512570056 -15.280293165995 -12.720127823532
+##  [233] -15.827845910575 -18.264471427469  -0.657805250830 -18.662170035406
+##  [237]  -8.798509639946 -36.117488827543 -21.476608683333 -16.469819284430
+##  [241] -14.175947498281   4.355943448218  -1.416029803095 -11.075370039267
+##  [245]  -2.665790934636  -0.535948556907 -17.881662275682   7.820248935160
+##  [249] -22.436815366911 -24.258688546876  16.130540363414 -14.136750884748
+##  [253]  -2.715420499469   0.496226416136  -0.808340055030 -16.315756160382
+##  [257] -12.673371205995  -9.937855279209 -14.273729499485  -5.073282031037
+##  [261] -11.522713054223   0.876445073960 -10.519955278107  -6.731176388956
+##  [265] -10.769451555755  -4.637561693192   0.028611698593  -2.694812662126
+##  [269] -15.739656750104 -20.506762485241  -7.351332141586 -36.452300687178
+##  [273] -13.837302669591 -27.947268623835   0.108822407068  -5.739633467294
+##  [277]  -3.871617773590   1.885998355699 -16.522282041095 -21.775160138229
+##  [281]  -0.060037225553 -18.912748287671   2.765917537768 -20.981307373965
+##  [285] -16.680454737034 -13.273650030875 -23.393934493673 -25.793503654633
+##  [289]  -0.190753384703  -5.154931274367 -19.460353814415 -11.785024137145
+##  [293] -20.979996826494 -20.838989883113  -3.165014417318 -14.839167888403
+##  [297] -11.317729496136  -5.332116376795 -12.188243769223 -13.967688057996
+##  [301]  -9.295509521372 -15.052289167383  -9.360786531757  -4.192678742600
+##  [305]  -8.348648468926 -31.301770697135 -29.329902619032   5.544880344353
+##  [309]  -9.871539886944  -3.905640963104  -7.287178884539 -21.995362586758
+##  [313]  -0.080470852660 -16.666840477431  -4.669569201240   0.370911173633
+##  [317] -10.653258367436   4.671293101751 -12.353629140039  13.553788203311
+##  [321]   3.806083401774 -13.585889447945   3.222199058553   2.508451264930
+##  [325] -19.950984243812 -21.378209578435 -13.850683195657  -3.631332870780
+##  [329] -17.035650587295 -18.230616826056  -7.533150641651 -11.823589111847
+##  [333] -13.243559595414 -11.320464629371 -14.143129106299 -10.195474234454
+##  [337]  -6.511340343784  -8.912760383219  -0.414650025364 -10.501162155552
+##  [341] -23.652234829064  -5.959653434834 -17.352375249251 -24.111516551579
+##  [345]  -2.424698423065   1.975708313105 -21.362344389827 -25.516506747560
+##  [349] -11.377548628837 -15.390354626410 -31.137015785045  -1.160938203500
+##  [353] -19.377985710845 -18.287923989528 -13.705556890629 -11.375601091558
+##  [357]   4.875659387303   2.864997746061 -32.012858809437  -2.638440038843
+##  [361]  -8.478000242231  -5.405785712991 -16.892520789861  -6.936036269504
+##  [365]  -7.447241593357  -9.721933037352 -11.885865658399 -16.537068104134
+##  [369] -17.627134733980  -3.062658730968  -6.002217115931 -12.023507306357
+##  [373] -12.327543803221   6.119626314299  -4.983114962191 -14.399007658295
+##  [377]  -4.013288360791  -1.883170272478 -15.102679547797 -11.050272170434
+##  [381] -14.363243147620  -4.464214043029  -2.629156535275  14.502319261124
+##  [385] -31.321871328736  -3.539593168041 -20.894417832653  -9.450165991637
+##  [389]  -1.225885888899  -7.415846090362  -1.649700469415   4.350227400892
+##  [393]  -5.010632080886 -23.800476936127  -6.817542711522 -31.502239765334
+##  [397] -11.047175613040  -6.622695881386  11.237629339891 -18.703758956861
+##  [401]  -2.205454783091 -21.321996562884 -25.855691241136  -7.921666743598
+##  [405]  -9.143811026381  -8.218372648966  -8.584126343044  14.681311922425
+##  [409] -14.993470906826   6.616838199881 -27.343482016719 -21.682895202473
+##  [413] -10.565585010288  -5.685463546366  -2.770541513744  -8.350238346628
+##  [417] -11.826576647438 -18.722973104199  -7.933471222281 -14.927235102510
+##  [421] -18.270578602393  -5.215961524815 -15.571616732356 -15.596811966398
+##  [425]  -6.194221617798 -10.070238604443   2.315382744595  -8.067810855508
+##  [429] -14.267075260544  -6.526527147017 -11.047580651524  -3.137368110646
+##  [433] -18.245750888746 -30.552057037150 -23.814183527912  -8.582758008547
+##  [437]   4.356459050377  -4.446465740489   5.819946746543  -6.129245841334
+##  [441]   5.407106555049 -10.660886944598 -17.114772583616  -4.021091979941
+##  [445] -13.869595237718  -4.830242261184  -7.895332493730 -10.872138296623
+##  [449] -10.026750600324  -3.994633739237  -7.696606542032 -15.440426028858
+##  [453]  -3.079332558114   6.259108187631 -19.114264576306   3.627537230302
+##  [457]  -7.127879370304   3.524074837024 -12.540985685399   4.208205881425
+##  [461] -28.781815973298 -12.671541013176  -5.332865574341 -17.230031395726
+##  [465] -24.680622731835 -14.578427505458   8.718366880519 -10.153025011819
+##  [469] -29.964890731059 -19.235425621797 -11.828824474634 -15.474793038822
+##  [473]  -9.158717453615 -29.208401503265 -21.952455298257 -13.826007452325
+##  [477] -17.019785250090 -10.129245105693   1.733863802217 -14.617985522934
+##  [481]   0.235367029154   6.450253937556 -13.014461819738   1.448217192583
+##  [485]  -3.192832405117 -13.134230654378 -15.597797706019 -12.829081378583
+##  [489]  -6.266122903782 -11.875599885965 -14.232942706784  -1.292969758640
+##  [493] -24.294342296176  -7.076236318416 -10.358180764982   0.139955520932
+##  [497] -14.379240242927   0.322065338253   5.711308388404  12.256920288776
+##  [501] -14.555500962659 -19.493648190935 -11.719753718798  -2.162891902173
+##  [505]   3.976371252068 -26.579439344259 -15.331719279167 -11.990722368401
+##  [509] -10.949414902123  -9.725280111563 -18.462022709099 -14.468065135914
+##  [513] -11.920356634368 -21.084374805564   1.060806517513  -5.479358644945
+##  [517] -12.353273309171 -22.338954349380 -25.119591964887 -34.624231785273
+##  [521]  -6.569891829041   2.050389156138  -6.800072080707  -5.293094198328
+##  [525]   4.383736120283 -11.270635721473 -10.545392846413 -17.473493128655
+##  [529]   1.015595896583 -14.091697948425 -16.760754276234  -6.734904221588
+##  [533] -15.490309351448 -17.228813280232  -0.079881218364  -8.923050153828
+##  [537] -13.091375380636 -14.199899562882 -36.249558330412 -10.395774633912
+##  [541] -13.470102605547 -24.291421578637 -17.094404273500  -8.263239754959
+##  [545]  11.234068036702   2.610133414323 -19.046521659644   1.832498929591
+##  [549] -10.921069394892   0.034455297857  -1.398068451037  -1.813306366622
+##  [553] -24.221095233032 -17.644869052896  -4.644207116310 -10.034738354643
+##  [557]   7.086038673258  -4.081394812980  -6.519796607461 -18.082339206840
+##  [561] -14.545156559797  -6.070639784849 -34.983499401790  -8.776979782170
+##  [565]  -7.965457546340 -32.361264555459 -15.150271005176 -19.148165100135
+##  [569]  -5.779021112018  -5.931963334840  -6.365195393789   8.273378322711
+##  [573]  -4.546625860587 -14.816368355185 -25.905741019258 -22.965478299249
+##  [577]  18.075192110328  -5.920883762827 -15.894704145439 -11.200164333395
+##  [581]  -1.405939184275 -13.697798386752 -13.119126033441 -11.379516451225
+##  [585] -37.074451556222 -15.496907641250 -19.618370148513 -16.792911439902
+##  [589]  -4.866461852037 -24.853940997907 -29.725135036892  -7.654416730168
+##  [593] -16.295932239993  20.151469209636 -13.322685042422   6.940742013021
+##  [597] -25.663733794587  -6.757755029319 -18.516812361399 -23.623185620267
+##  [601]  -6.383344922303  -7.390285924840 -16.285803434962 -28.088962329960
+##  [605] -10.495421649439  -5.502488207977 -15.033282742532  -8.910278058209
+##  [609]   0.512003394753 -16.818292548619  -3.691836865301 -12.030644366977
+##  [613] -18.418463286127  -3.801052817304  13.089558143522  -4.668255127423
+##  [617] -18.844273991635  -6.470488648822  -8.467944989510  -3.664951564133
+##  [621] -18.220547763016   0.357650322319 -26.434044453216  10.407809854215
+##  [625] -10.788900099189 -23.033313441574 -15.033017754166  -2.880816350591
+##  [629] -15.171146029940 -12.282494835785 -28.808009935254 -12.395999748514
+##  [633]  -9.224246164120 -20.917442488056 -24.847987655300 -23.309909298221
+##  [637] -20.636053579667   1.016725286760 -11.294704311803 -12.297229114023
+##  [641]  -1.522031002062 -27.635161919387  -9.518945542057 -12.934459282048
+##  [645]   0.505594760025 -12.193711036033  -8.280145619826 -21.808004721312
+##  [649] -24.605469088986 -20.909805074367 -20.138092598866   3.246804042723
+##  [653] -14.438000510211   1.217300386578 -30.664473120921   1.355879211553
+##  [657] -28.664927449892 -22.500020744172 -20.361828823428 -10.095650478695
+##  [661] -12.988514056496  -0.353703243674  -8.070403580153   3.251492573138
+##  [665] -19.534374398250   7.014937713478 -11.524073469346 -24.799447757933
+##  [669]  -8.527391442382 -26.791814522303 -13.303570721329  -7.059140197667
+##  [673] -11.811353827334 -10.952040013190  10.270309057244  -3.283895463910
+##  [677]  -6.670895772173  -8.271726884733  -1.625013805320  -3.083814034457
+##  [681]  -7.689302588421  -7.667548822962  -6.939165371016  -5.646697276032
+##  [685] -22.264596145893 -18.435448077518 -18.648650770261 -20.241192118467
+##  [689] -21.027317571116  -2.736500183287 -12.850014512323 -24.077704497454
+##  [693] -23.600655806012  -1.378681680281   1.925360185559   6.037197863199
+##  [697] -12.131744796222 -20.632275908633  -9.320793585273 -13.211972497069
+##  [701]  -1.381834095610 -23.306193759365 -10.037345196936 -23.852224526905
+##  [705] -12.810797570694  -7.704551155983 -17.643989538282  -7.912312788601
+##  [709]  10.130711932976  -5.182476894938   3.990215952453   1.257358979452
+##  [713]  -7.744757196009  -7.453386074161  -6.912886264416  -1.747859909154
+##  [717] -15.387032084497 -18.856485158014 -14.284205646933 -17.630527150499
+##  [721]  -5.973156455445 -19.293096170008 -21.561668320724 -16.469840463653
+##  [725]  -2.645310225514 -11.630181068026 -13.269773029785 -22.066786820106
+##  [729] -23.535718246327 -22.921831868020 -22.460731450019  -9.194097583731
+##  [733] -24.961788728513  -9.160624244011   8.767533033464 -15.289125031823
+##  [737] -17.833353647457 -10.189036160689 -23.011310935238 -13.742595430912
+##  [741] -14.596774871344 -12.498919911353 -11.795642145879 -21.971668253703
+##  [745] -10.755296998140 -22.692931568827 -24.491900663328   1.358602220525
+##  [749] -11.886169259088  -9.840675198682 -13.002490755053  10.196817306848
+##  [753] -16.770163023441  10.520596183913 -32.888934358354  -3.836071446515
+##  [757]  -2.825594924180   5.222152700027 -30.476401194871 -17.761650209474
+##  [761]   1.163287296688 -13.245602348485  -6.816767463464  -4.053374520024
+##  [765] -20.841630693010  -8.454074401458 -22.592800248113 -17.868129362409
+##  [769]  -4.870512278589 -11.646716408076  -1.882013894074  -5.216040446776
+##  [773] -24.724692654231  -8.081347295116   0.075142601202  -2.595774573009
+##  [777]  -3.956522552684   2.836004511918 -15.427987440477 -16.728096137994
+##  [781] -16.235706216531 -13.400996555262 -17.027197218526  -5.626307081955
+##  [785] -21.279992876218   6.175452799584  -2.034637399608  -0.987570319110
+##  [789] -30.721000707981   2.411869495672  -3.255317539253 -12.735896100006
+##  [793] -13.574793779872 -20.136239520409 -16.115411018193   2.383242199250
+##  [797]  -8.668264007508 -19.835627640429 -31.042141504609 -23.373248228689
+##  [801] -18.674176331499 -11.818848083992 -12.138470145355   0.965961017079
+##  [805]  -6.103533758463 -21.382939602587 -17.105425766300 -17.865370376538
+##  [809] -11.214421288463  -5.486979570914  -2.890127739091 -27.683528121239
+##  [813] -20.300215423144 -17.682174924247 -23.603745463959  -3.118999025381
+##  [817]   6.992072305571  -9.220136340306 -12.662861162528   4.504170047680
+##  [821]  -6.591060975043  -6.766576256497 -23.246911356221   1.195313668134
+##  [825] -13.267236620648   3.805167481101   1.866820447964 -17.146761752978
+##  [829] -14.716643083454 -20.587686508747  -5.862627404996  -3.357646076817
+##  [833] -13.253337044886 -10.657245124878 -17.430851815142 -18.857815794514
+##  [837]  -1.570414913321 -22.983821329745  -1.828951836073  -7.409274592819
+##  [841] -22.243251475791  -8.385006744564 -18.546972774969 -13.640683500843
+##  [845] -12.208594516976 -13.786681397402 -14.797433816646  -3.692713570951
+##  [849]  -5.757700853492  -7.624217656462 -17.866840232006 -32.338761142262
+##  [853]  -1.699971459628   4.274093673272 -12.943019145814  -5.346004927162
+##  [857]   0.576473737031 -11.926587523145  -8.020020948113  -3.804940400593
+##  [861]   7.418474128932  -6.881962690596   1.462574291375 -26.377141719257
+##  [865]  -9.439039554436 -31.432286114822   9.296192256955  -7.278129105980
+##  [869] -17.108840045471  -4.173688842575  16.832244966630 -14.170754881253
+##  [873] -13.076863414513 -14.471540416624 -16.397904276812  -0.594558700914
+##  [877]   0.655111536204  -4.124118076765 -23.993803075941 -11.934902243331
+##  [881] -24.043704609620   4.929232838767  -4.974201447739  -4.396818561231
+##  [885]   2.583795483214  -5.854809802245  -8.515997485576  -0.632613656023
+##  [889]  -1.810246577249  -0.840016362101 -21.542492459438   1.406589479366
+##  [893] -15.062480221766  -5.288125629505   4.518471778389  -1.627866678623
+##  [897]   7.824685988660  -3.379611518472   4.328321561186  -6.991724341270
+##  [901]  15.604521456049 -15.998362421540   6.759240162884 -11.091065339937
+##  [905] -14.503382238486  -8.062595302692  -4.680961288146 -19.648129307928
+##  [909]  -5.133941747158 -27.271084932827  -8.189517366368 -13.783325527097
+##  [913]   0.775835008295 -24.924236717901   4.823427817493  -8.277910139633
+##  [917] -18.432308414271 -15.496054534321 -10.492922671606 -26.661529285528
+##  [921]  -6.371823984003 -11.551026691417   0.166512808679  -1.478373083754
+##  [925] -19.195115577427  -2.508490616413 -21.266954368021  -7.326771716285
+##  [929] -15.546732144415 -13.253557701186  -9.019487664448  -2.261330442106
+##  [933]  -0.256667769085  -1.810942994580 -18.229719923919  15.067205185317
+##  [937] -14.137841420159   4.916043498359  -8.536090458718 -20.557742188117
+##  [941] -12.616347254563 -21.263577347676 -26.561000566661 -16.434811095816
+##  [945] -12.116937160783 -17.708349873144  -9.529553483022  -3.519242270986
+##  [949]  -2.785983145909  -9.652226706081   4.256032373663 -10.079037741626
+##  [953] -20.881090388130  -9.520827512512  -2.909114042759  -3.545075397819
+##  [957]  -8.112496881723 -25.065071197945 -11.227639418990  -3.084041925953
+##  [961]  -4.089651133319 -21.802231017585 -26.619907286451  -4.541318223911
+##  [965]   6.946753383932 -12.107801572086 -11.513590454149 -28.367633799160
+##  [969]  -5.819835243973 -22.120006238393  -8.064739337816  -6.853646958583
+##  [973] -30.536354845714  -4.741093905914  -4.138380817021 -27.545721102617
+##  [977]  12.581803528468   0.408654403883 -11.179603552132 -19.761283307194
+##  [981]  -4.459718417565   8.332551147257  -8.560509630305  -0.972337434717
+##  [985]   5.609664333370  -2.752444433041  -4.046963301637 -31.109777308833
+##  [989] -23.120062908659 -24.351341934072  -1.765302502889  -0.217312241380
+##  [993]  -4.577909083109   3.489837076073  -7.861940827184 -11.654735703889
+##  [997] -32.307206322589 -10.891012634756  -8.758025142259 -20.952176209139
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Find the average of \texttt{v} and the standard error of \texttt{v}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -10.403337321
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SE}\OtherTok{=}\FunctionTok{sd}\NormalTok{(v)}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{1000}\NormalTok{)}
+\NormalTok{SE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.31315004412
+\end{verbatim}
+
+*Find the 5\%ile of \texttt{v} and use the \texttt{qnorm} function to
+compute what it theoretically should be. Is the estimate about what is
+expected by theory?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{quantile}\NormalTok{(v,}\AttributeTok{prob=}\FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            5% 
+## -26.581462741
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qnorm}\NormalTok{(.}\DecValTok{05}\NormalTok{,}\AttributeTok{mean=}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{,}\AttributeTok{sd=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -26.44853627
+\end{verbatim}
+
+*The estimate and what is expected are very similar.
+
+\begin{itemize}
+\tightlist
+\item
+  What is the percentile of \texttt{v} that corresponds to the value 0?
+  What should it be theoretically? Is the estimate about what is
+  expected by theory?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{inverse\_quantile}\OtherTok{=}\FunctionTok{ecdf}\NormalTok{(v)}
+\FunctionTok{inverse\_quantile}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.85
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{quantile}\NormalTok{(v,}\AttributeTok{prob=}\NormalTok{.}\DecValTok{85}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             85% 
+## -0.046739886931
+\end{verbatim}
+
+*Theoretically it should be 85\%. The estimate and what is expected are
+very similar to one another.
+
+\end{document}
