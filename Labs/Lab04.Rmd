@@ -1,0 +1,229 @@
+---
+title: "Lab 4"
+author: "Amy Butler"
+date: "11:59PM March 10, 2021"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+Load up the famous iris dataset. We are going to do a different prediction problem. Imagine the only input x is Species and you are trying to predict y which is Petal.Length. A reasonable prediction is the average petal length within each Species. Prove that this is the OLS model by fitting an appropriate `lm` and then using the predict function to verify.
+
+#We need to prove the predictions will match the y_bar of each species
+#The numbers match so this worked
+#Find the y_bar for each species
+
+```{r}
+data(iris)
+
+mod=lm(Petal.Length ~ Species, iris)
+
+mean(iris$Petal.Length[iris$Species == "setosa"])
+mean(iris$Petal.Length[iris$Species == "versicolor"])
+mean(iris$Petal.Length[iris$Species == "virginica"])
+
+predict(mod, data.frame(Species=c("setosa")))
+predict(mod, data.frame(Species=c("versicolor")))
+predict(mod, data.frame(Species=c("virginica")))
+```
+
+Construct the design matrix for the previous linear model with an intercept, $X$, without using `model.matrix`.
+
+#A design matrix makes column vectors that measure what we care about (in this case species) and a column of ones to fit an intercept.
+
+```{r}
+X=cbind(1,iris$Species=="versicolor",iris$Species=="virginica" )
+head(X)
+```
+
+Find the hat matrix $H$ for this regression.
+
+#%*% is matrix multiplication
+#Solve() finds the inverse of a matrix
+#t(X) is X transpose
+#The rank should be three because there are 3 columns in X and the projectin of yhat onto the column space of X should be a linear combination of the 3 columns of X.
+
+```{r}
+H=X %*% solve(t(X) %*% X) %*% t(X)
+Matrix::rankMatrix(H)
+```
+
+Verify this hat matrix is symmetric using the `expect_equal` function in the package `testthat`.
+
+#Pacman loads a package
+#If there is no error then it worked and the matrix is symmetric
+
+```{r}
+pacman::p_load(testthat)
+expect_equal(H, t(H))
+```
+
+Verify this hat matrix is idempotent using the `expect_equal` function in the package `testthat`.
+
+#No output means it works and the matrix is idempotent
+
+```{r}
+expect_equal(H, H%*%H)
+```
+
+Using the `diag` function, find the trace of the hat matrix.
+
+#Diag returns, extracts, or replaces the diagonal of a matrix
+#Trace is the sum of the diagonal
+#The trace is also the rank
+
+```{r}
+sum(diag(H))
+```
+
+It turns out the trace of a hat matrix is the same as its rank! But we don't have time to prove these interesting and useful facts..
+
+For masters students: create a matrix $X_\perp$.
+
+```{r}
+#TO-DO
+```
+
+Using the hat matrix (H), compute the $\hat{y}$ vector and using the projection onto the residual space, compute the $e$ vector and verify they are orthogonal to each other.
+
+#H%*% does a projection
+#The table should display the 50 y_bar's for each of the three species
+#e should be a column vector of decimals with no pattern
+
+```{r}
+y=iris$Petal.Length
+y_hat= H %*% y
+table(y_hat)
+e= (diag(nrow(iris))-H) %*% y
+e
+```
+
+Compute SST, SSR and SSE and $R^2$ and then show that SST = SSR + SSE.
+
+#The SSE & SST can be written in the previous formula format we used or in matrix form like below
+#No output of the expect_equals means that SSR+SSE does equal SST
+
+```{r}
+y_bar=mean(y)
+
+SSE= t(e) %*% e
+SSE
+SST= t(y-y_bar) %*% (y-y_bar)
+SSR= t(y_hat-y_bar) %*% (y_hat-y_bar)
+RSQ= 1-SSE/SST
+RSQ
+
+expect_equal(SSR+SSE, SST)
+```
+
+Find the angle $\theta$ between $y$ - $\bar{y}1$ and $\hat{y} - \bar{y}1$ and then verify that its cosine squared is the same as the $R^2$ from the previous problem.
+
+#Theta should be close to zero
+#pi/180 turns theta into degrees
+
+```{r}
+theta = acos(t(y-y_bar) %*% (y_hat-y_bar) / sqrt(SST * SSR))
+theta * (180/pi)
+```
+
+Project the $y$ vector onto each column of the $X$ matrix and test if the sum of these projections is the same as yhat.
+
+#We want this to fail when adding the projections
+
+```{r}
+proj1= (X[,1] %*% t(X[,1]) / as.numeric(t(X[,1]) %*% X[,1])) %*% y
+proj2= (X[,2] %*% t(X[,2]) / as.numeric(t(X[,2]) %*% X[,2])) %*% y
+proj3= (X[,3] %*% t(X[,3]) / as.numeric(t(X[,3]) %*% X[,3])) %*% y
+```
+
+Construct the design matrix without an intercept, $X$, without using `model.matrix`.
+
+```{r}
+anova_mod = lm(Petal.Length ~ 0 + Species, iris)
+```
+
+Find the OLS estimates using this design matrix. It should be the sample averages of the petal lengths within species.
+
+```{r}
+b = solve(t(X)%*%X)%*%t(X)%*%y
+Model=lm(Petal.Length~X,iris)
+Model
+```
+
+Verify the hat matrix constructed from this design matrix is the same as the hat matrix constructed from the design matrix with the intercept. (Fact: orthogonal projection matrices are unique).
+
+```{r}
+X = cbind(as.integer(iris$Species == "setosa"), as.integer(iris$Species == "versicolor"), as.integer(iris$Species == "virginica"))
+H_second = X %*% solve(t(X) %*% X) %*% t(X)
+```
+
+Project the $y$ vector onto each column of the $X$ matrix and test if the sum of these projections is the same as yhat.
+
+#Same format as problem above with projections
+
+```{r}
+proj1 = ((X[,1] %*% t(X[,1])) / as.numeric(t(X[,1]) %*% X[,1])) %*% y
+proj2 = ((X[,2] %*% t(X[,2])) / as.numeric(t(X[,2]) %*% X[,2])) %*% y
+proj3 = ((X[,3] %*% t(X[,3])) / as.numeric(t(X[,3]) %*% X[,3])) %*% y
+```
+
+Convert this design matrix into $Q$, an orthonormal matrix.
+
+```{r}
+qrX=qr(X)
+Q=qr.Q(qrX)
+```
+
+Project the $y$ vector onto each column of the $Q$ matrix and test if the sum of these projections is the same as yhat.
+
+```{r}
+proj1 = ((Q[,1] %*% t(Q[,1])) / as.numeric(t(Q[,1]) %*% Q[,1])) %*% y
+proj2 = ((Q[,2] %*% t(Q[,2])) / as.numeric(t(Q[,2]) %*% Q[,2])) %*% y
+proj3 = ((Q[,3] %*% t(Q[,3])) / as.numeric(t(Q[,3]) %*% Q[,3])) %*% y
+```
+
+Find the $p=3$ linear OLS estimates if $Q$ is used as the design matrix using the `lm` method. Is the OLS solution the same as the OLS solution for $X$?
+
+```{r}
+lm(Petal.Length~Q[,3],iris)
+```
+
+Use the predict function and ensure that the predicted values are the same for both linear models: the one created with $X$ as its design matrix and the one created with $Q$ as its design matrix.
+
+```{r}
+predict(Model)
+```
+
+
+Clear the workspace and load the boston housing data and extract $X$ and $y$. The dimensions are $n=506$ and $p=13$. Create a matrix that is $(p + 1) \times (p + 1)$ full of NA's. Label the columns the same columns as X. Do not label the rows. For the first row, find the OLS estimate of the $y$ regressed on the first column only and put that in the first entry. For the second row, find the OLS estimates of the $y$ regressed on the first and second columns of $X$ only and put them in the first and second entries. For the third row, find the OLS estimates of the $y$ regressed on the first, second and third columns of $X$ only and put them in the first, second and third entries, etc. For the last row, fill it with the full OLS estimates.
+
+```{r}
+rm(list=ls())
+Boston=MASS::Boston
+X=cbind(1, as.matrix(Boston[,1:13]))
+y=Boston[,14]
+p1=ncol(X)
+matrixp1=matrix(NA, nrow=p1, ncol=p1)
+for(j in 1:ncol(X)){
+  Xj=X[,1:j]
+  matrixp1[j,1:j]=solve(t(Xj)%*%Xj)%*%t(Xj)%*%y
+}
+```
+
+Why are the estimates changing from row to row as you add in more predictors?
+
+Because the predictions are getting better and better with more data.
+
+Create a vector of length $p+1$ and compute the R^2 values for each of the above models. 
+
+```{r}
+vector=c(1:14)
+for(i in 1:ncol(X)){
+  model=lm(y~X[,1:ncol(X)])
+  vector[i]=summary(model)$r.squared
+}
+```
+
+Is R^2 monotonically increasing? Why?
+
+R-squared is monotonically increasing because with more data there will be a better explanation.
